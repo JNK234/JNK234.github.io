@@ -2,96 +2,156 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Narasimha Karthik J
+    - name: Location
+      value: Chicago, Illinois
     - name: Languages
-      value: English, German
+      value: English, Hindi, Telugu
+    - name: Email
+      value: narasimha@u.northwestern.edu
+    - name: LinkedIn
+      value: <a href="https://www.linkedin.com/in/narasimhakarthik/">narasimhakarthik</a>
+    - name: Newsletter
+      value: <a href="https://neuraforge.substack.com">NeuraForge</a>
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: Master of Science in Artificial Intelligence
+      institution: Northwestern University, Evanston, Illinois
+      year: 2024 - 2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - Expected Graduation - December 2025
+        - Focus on Machine Learning, NLP, and Reinforcement Learning
+        - Research Assistant at CCL Lab
+    - title: BTech in Electronics and Communication Engineering
+      institution: PES University, Bengaluru, India
+      year: 2018 - 2022
       description:
-        - Description 1.
-        - Description 2.
+        - Graduated September 2022
+        - Focus on Signal Processing and Embedded Systems
+        - E-yantra Robotics Competition Team Lead
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Applied Science Intern
+      institution: Relativity, Chicago, Illinois
+      year: Jun 2025 - Aug 2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Upcoming internship in applied sciences and machine learning
+
+    - title: Research Assistant
+      institution: CCL Lab - Northwestern University, Evanston, Illinois
+      year: Sept 2024 - Present
       description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+        - Developing frameworks for code generation using genetic programming with LLMs (Grok, Claude, DeepSeek)
+        - Building verification and performance tracking systems for LLM-generated code
+        - Working with LangChain and LangGraph libraries for agent-based modeling
+        
+    - title: Data Scientist
+      institution: The Boeing Company, Bengaluru, India
+      year: July 2022 - Aug 2024
       description:
+        - Developed dynamic cost prediction models for airplane parts with 2M+ rows of data
+        - Created automated training and evaluation pipeline, reducing modeling time by 70%
+        - Implemented hyperparameter tuning with threading/multiprocessing, achieving R-score of 0.9
+        - Trained and fine-tuned GPT-2, Llama models on Aircraft Maintenance Manuals using PEFT techniques
+        - Built RAG system with ChromaDB and OpenAI API, reducing manual effort by 80%
+        - Secured $200k funding through AI-driven document automation demonstration
+        - Led NLP-LLM community of practice, conducting sessions on LLMs, RAG, and GenAI
+        - Led hiring process for ML Engineers, onboarding 6 candidates from 50 applicants
+        
+    - title: Software Engineering Intern
+      institution: Invento Robotics, Bengaluru, India
+      year: July 2021 - June 2022
+      description:
+        - Developed 'Invento Fleet' iOS app with 10+ core features using SwiftUI and Swift 5
+        - Implemented API-based video calling using TwilioVideo for robot-human communication
+        - Built Socket-based communication for remote robot control
+        - Integrated WebRTC for live video streaming from robot to iOS app
+        - Developed Human Fall Detection algorithm using YOLOv5 with 95% accuracy
+        
+    - title: Software Developer Intern
+      institution: Invento Robotics, Bengaluru, India
+      year: July 2020 - Aug 2020
+      description:
+        - Built quality chatbots with NLP capabilities using Dialogflow API
+        - Automated intent and entity creation, reducing time by 85%
+        - Created web app using Flask for conversational flow validation
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
-
-- title: Academic Interests
+- title: Skills
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Programming Languages
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Python, SQL, C, Swift
+    - title: Machine Learning & AI
       items:
-        - Description 1.
-        - Description 2.
+        - PyTorch, Transformers, Sklearn, XGBoost
+        - LangChain, LangGraph, LlamaIndex
+        - PEFT, RLHF, Multi-GPU Training
+    - title: Data & Infrastructure
+      items:
+        - Pandas, NumPy, ChromaDB, Elasticsearch
+        - FastAPI, Flask, Docker
+        - Vector Databases, RAG Systems
+    - title: Research Interests
+      items:
+        - LLM Training & Fine-tuning
+        - Reinforcement Learning
+        - Natural Language Processing
+        - Mechanistic Interpretability
+        - Agentic AI
 
-- title: Other Interests
+- title: Projects
+  type: time_table
+  contents:
+    - title: AdVocate - AI Marketing Platform
+      year: Feb 2025
+      description:
+        - Finalist for "Best Use of Generative AI" at TartanHacks 2025, CMU
+        - Engineered end-to-end AI marketing platform reducing campaign creation time by 90%
+        - Designed microservices architecture using Azure OpenAI, LangChain, and ChromaDB
+        - Optimized API costs with two-tier caching, achieving 60% reduction in API calls
+        
+    - title: Real-Time Options Trading Intelligence Platform
+      year: Oct 2024 - Present
+      description:
+        - Developing options prediction model combining statistical and neural architectures
+        - Building trading bot integrating real-time market data with sentiment analysis
+        
+    - title: E-yantra Robotics Competition
+      year: Sept 2020 - May 2021
+      description:
+        - Led 4-person team developing automated warehouse system using ROS and Gazebo
+        - Optimized simulation performance by 50% through multi-threading
+        - Achieved competition score of 97.96/100
+
+- title: Achievements & Awards
+  type: time_table
+  contents:
+    - year: 2025
+      items:
+        - Finalist, "Best Use of Generative AI" - TartanHacks @ Carnegie Mellon University
+    - year: 2023
+      items:
+        - Bureaucracy Crusher Award - SoCal Gemba Fest, Boeing Research & Technology
+        - Winner - CANDI Land Hackathon, Boeing Research & Technology
+        - GT TechFest Innovation Challenge Winner - Predictive Maintenance, Boeing
+    - year: 2021
+      items:
+        - Top Performance - E-yantra Robotics Competition (97.96/100)
+
+- title: Publications & Writing
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <b>NeuraForge Newsletter</b> - Publishing content on Generative AI and Machine Learning trends (Aug 2023 - Present)
+    - Technical blog posts on LLMs, RAG systems, and AI applications
+
+- title: Leadership & Community
+  type: list
+  contents:
+    - Led NLP-LLM Community of Practice at Boeing - conducted 3 sessions on LLMs, RAG, and Generative AI
+    - Led hiring process for ML Engineers at Boeing - successfully onboarded 6 candidates
+    - E-yantra Robotics Competition Team Lead - managed 4-person team for national competition

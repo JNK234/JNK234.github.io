@@ -1,81 +1,139 @@
 ---
 layout: page
-title: project 3 with very long name
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
+title: E-yantra Robotics Competition
+description: National robotics competition - Automated warehouse system with ROS
+img: assets/img/3.jpg
 importance: 3
 category: work
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## 🏆 Top Performance - National Robotics Competition
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+E-yantra is India's premier robotics competition hosted by IIT Bombay, where teams from across the country compete to solve real-world problems using robotics and automation. Our team achieved an exceptional score of **97.96/100** in the 2020-21 edition.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+## Competition Challenge: Automated Warehouse Management
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+### Problem Statement
+Design and implement a fully automated warehouse management system capable of:
+- Autonomous navigation and path planning
+- Package identification and sorting
+- Multi-robot coordination
+- Real-time inventory management
+- Optimal delivery scheduling
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+## Technical Implementation
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
+### System Architecture
+```
+ROS Master Node
+├── Navigation Stack
+│   ├── SLAM (gmapping)
+│   ├── Path Planning (A* algorithm)
+│   └── Obstacle Avoidance
+├── Computer Vision
+│   ├── ArUco Marker Detection
+│   ├── Package Recognition
+│   └── Color-based Sorting
+└── Control Systems
+    ├── PID Controllers
+    ├── State Machine
+    └── Multi-threading
 ```
 
-{% endraw %}
+### Key Technologies
+
+#### Robotics & Simulation
+- **ROS (Robot Operating System)**: Distributed computing framework
+- **Gazebo Simulator**: Physics-based 3D simulation
+- **RViz**: Visualization and debugging
+- **MoveIt**: Motion planning framework
+
+#### Algorithms & Optimization
+- **Path Planning**: Custom A* implementation with dynamic re-routing
+- **Task Scheduling**: Priority queue-based package delivery
+- **Multi-threading**: 50% performance improvement in simulation
+- **State Machine**: Finite state machine for robot behavior
+
+## Competition Performance
+
+### Technical Achievements
+- **Score**: 97.96/100 (Top 5% nationally)
+- **Simulation Speed**: 50% faster than baseline through optimization
+- **Accuracy**: 100% package delivery success rate
+- **Efficiency**: 30% reduction in total path distance
+
+### Implementation Highlights
+
+#### 1. Multi-Robot Coordination
+```python
+# Distributed task allocation algorithm
+- Dynamic priority assignment
+- Collision-free path planning
+- Real-time communication via ROS topics
+```
+
+#### 2. Computer Vision Pipeline
+```python
+# Package identification system
+- ArUco marker detection for precise localization
+- HSV color space for robust color detection
+- Real-time processing at 30 FPS
+```
+
+#### 3. Performance Optimization
+- Implemented multi-threading for parallel task execution
+- Optimized path planning algorithm reducing computation by 40%
+- Custom message types for efficient ROS communication
+
+## Team Leadership
+
+As **Team Lead**, I was responsible for:
+- System architecture design and integration
+- Task delegation and sprint planning
+- Code review and quality assurance
+- Weekly progress presentations to mentors
+
+### Team Management
+- Led 4-person team through 6-month development cycle
+- Conducted daily stand-ups and weekly retrospectives
+- Managed Git workflow and CI/CD pipeline
+- Coordinated with IIT Bombay mentors for technical guidance
+
+## Learning Outcomes
+
+### Technical Skills Gained
+- Advanced ROS development and debugging
+- Real-time system optimization
+- Computer vision implementation
+- Distributed system architecture
+
+### Soft Skills Developed
+- Technical leadership
+- Project management
+- Remote collaboration (during COVID-19)
+- Problem-solving under pressure
+
+## Competition Timeline
+
+**Sept 2020**: Team formation and problem statement release
+**Oct-Nov 2020**: Algorithm development and simulation setup
+**Dec 2020-Jan 2021**: Implementation and optimization
+**Feb-Mar 2021**: Testing and refinement
+**April 2021**: Final submission and evaluation
+**May 2021**: Results announcement - Score: 97.96/100
+
+## Impact
+
+This competition experience directly influenced my career trajectory:
+- Foundation for robotics and automation expertise
+- Led to internship opportunity at Invento Robotics
+- Demonstrated leadership capabilities early in career
+- Published implementation details on GitHub (1000+ views)
+
+## Code Repository
+
+The complete implementation is available on [GitHub](https://github.com) with:
+- Comprehensive documentation
+- Setup instructions
+- Video demonstrations
+- Performance benchmarks

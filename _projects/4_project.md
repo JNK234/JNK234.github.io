@@ -1,80 +1,131 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
-importance: 3
-category: fun
+title: NeuraForge Newsletter
+description: Technical newsletter on Generative AI and Machine Learning trends
+img: assets/img/12.jpg
+redirect: https://neuraforge.substack.com
+importance: 4
+category: work
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## 📝 Technical Writing & Thought Leadership
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+NeuraForge is my technical newsletter where I share insights, analysis, and practical knowledge about the rapidly evolving field of Generative AI and Machine Learning. With regular publications since August 2023, the newsletter has become a resource for practitioners and enthusiasts in the AI community.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+## Newsletter Focus Areas
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+### Core Topics
+- **Large Language Models**: Deep dives into architecture, training, and deployment
+- **RAG Systems**: Practical implementations and optimization techniques
+- **AI Engineering**: Best practices for production AI systems
+- **Research Analysis**: Breaking down latest papers and breakthroughs
+- **Tool Reviews**: Hands-on evaluation of new AI tools and frameworks
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+## Popular Articles
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+### Featured Posts
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+#### "Building Production RAG Systems: A Practitioner's Guide"
+- Comprehensive guide to implementing RAG at scale
+- Covered vector database selection, chunking strategies, and retrieval optimization
+- 500+ reads, widely shared in ML communities
 
-{% raw %}
+#### "The Real Cost of Fine-tuning LLMs"
+- Analysis of when to fine-tune vs. prompt engineering
+- Cost-benefit analysis with real-world case studies
+- Practical decision framework for enterprises
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+#### "From GPT to Production: Lessons from the Trenches"
+- Experience report from deploying LLMs at Boeing
+- Common pitfalls and how to avoid them
+- Performance optimization techniques
 
-{% endraw %}
+## Writing Philosophy
+
+### Technical Depth with Accessibility
+- Break down complex concepts without oversimplification
+- Provide working code examples and implementations
+- Focus on practical, actionable insights
+- Bridge the gap between research and application
+
+### Evidence-Based Analysis
+- All claims backed by data or experimentation
+- Reproducible examples and benchmarks
+- Honest assessment of limitations and trade-offs
+- No hype, just technical reality
+
+## Community Engagement
+
+### Reader Demographics
+- **ML Engineers**: 40%
+- **Data Scientists**: 30%
+- **Technical Leaders**: 20%
+- **Researchers & Students**: 10%
+
+### Interactive Elements
+- Code repositories accompanying articles
+- Reader Q&A sessions
+- Community experiments and challenges
+- Collaborative benchmarking projects
+
+## Impact & Reach
+
+### Growth Metrics
+- **Subscribers**: Growing monthly
+- **Average Open Rate**: Above industry average
+- **Engagement**: Active discussions on each post
+- **Cross-platform**: Shared on LinkedIn, Twitter, Reddit
+
+### Reader Feedback
+> "One of the few newsletters that actually provides technical depth without the fluff" - Senior ML Engineer
+
+> "NeuraForge helped me understand RAG implementation better than any course" - Data Scientist
+
+> "Finally, someone writing about the real challenges of production AI" - Engineering Manager
+
+## Technical Resources
+
+### Accompanying Materials
+Each newsletter edition often includes:
+- **GitHub Repositories**: Working code examples
+- **Jupyter Notebooks**: Interactive demonstrations
+- **Datasets**: Curated data for experimentation
+- **Benchmarks**: Performance comparisons
+
+### Tools & Frameworks Covered
+- LangChain, LlamaIndex, ChromaDB
+- OpenAI, Anthropic, Google APIs
+- Vector databases (Pinecone, Weaviate, Qdrant)
+- Evaluation frameworks and monitoring tools
+
+## Future Directions
+
+### Upcoming Series
+- **"Mechanistic Interpretability for Practitioners"**: Making AI explainability practical
+- **"The Economics of AI"**: Cost optimization strategies for AI systems
+- **"Multi-Agent Systems"**: Building collaborative AI architectures
+- **"Edge AI"**: Deploying models on resource-constrained devices
+
+### Expansion Plans
+- Video content and tutorials
+- Live coding sessions
+- Guest expert interviews
+- Community projects and hackathons
+
+## Subscribe
+
+Interested in staying updated with the latest in AI and ML? [Subscribe to NeuraForge](https://neuraforge.substack.com) for weekly insights and practical knowledge.
+
+## Archive Highlights
+
+### Recent Posts
+- "Vector Database Shootout: Performance at Scale"
+- "PEFT Techniques: When LoRA Isn't Enough"
+- "Building Evaluation Pipelines for LLM Applications"
+- "The Hidden Costs of Context Windows"
+
+### Most Popular
+- "Why Your RAG System Isn't Working"
+- "Fine-tuning vs Few-shot: The Data Science"
+- "Production LLM Monitoring: What Actually Matters"
+- "Async Patterns for LLM Applications"
