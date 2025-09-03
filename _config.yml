@@ -13,7 +13,6 @@ description: > # the ">" symbol means to ignore newlines until "footer_text:"
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: machine-learning, artificial-intelligence, data-science, LLMs, NLP, reinforcement-learning, Northwestern, Boeing, GenAI, RAG # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
@@ -123,12 +122,23 @@ disqus_shortname: al-folio # put your disqus shortname
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
-  - name: Google Blog
-    posts:
-      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        published_date: 2024-05-14
+  # Medium RSS Feed - Replace YOUR-USERNAME with your Medium username
+  # To get your Medium RSS: https://medium.com/@YOUR-USERNAME/feed
+  - name: Medium
+    rss_url: https://medium.com/@narasimhakarthik/feed
+    
+  # Substack RSS Feed - Replace YOUR-PUBLICATION with your Substack publication name
+  # To get your Substack RSS: https://YOUR-PUBLICATION.substack.com/feed
+  - name: Substack
+    rss_url: https://neuraforge.substack.com/feed
+    
+  # You can also add individual posts manually if RSS doesn't work
+  # - name: External Posts
+  #   posts:
+  #     - url: https://medium.com/@your-username/your-article-title
+  #       published_date: 2024-01-15
+  #     - url: https://your-publication.substack.com/p/your-post-title
+  #       published_date: 2024-02-20
 
 # -----------------------------------------------------------------------------
 # Newsletter
