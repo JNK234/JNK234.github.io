@@ -5,6 +5,10 @@ description: Real-time options trading bot with sentiment-driven market insights
 img: assets/img/3.jpg
 importance: 2
 category: work
+github: https://github.com/jnk-codes/options-trading-platform
+github_repo: options-trading-platform
+tech_stack: [Python, PyTorch, NumPy, Pandas, FastAPI, Apache Kafka, TimescaleDB, Redis, Docker]
+status: in_development
 ---
 
 ## Advanced Options & Derivatives Prediction System
@@ -84,6 +88,15 @@ This ongoing project represents the convergence of quantitative finance and arti
             <li>Grafana (monitoring)</li>
         </ul>
     </div>
+</div>
+
+## Repository
+
+<div class="d-flex justify-content-center">
+    <a href="https://github.com/jnk-codes/options-trading-platform" class="btn btn-primary btn-sm" target="_blank">
+        <i class="fa-brands fa-github"></i> View Code
+    </a>
+    <span class="badge badge-warning ml-2">In Development</span>
 </div>
 
 ## Performance Metrics

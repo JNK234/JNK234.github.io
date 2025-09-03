@@ -6,6 +6,11 @@ img: assets/img/12.jpg
 redirect: https://neuraforge.substack.com
 importance: 4
 category: work
+external_link: https://neuraforge.substack.com
+github: https://github.com/jnk-codes/neuraforge-newsletter
+github_repo: neuraforge-newsletter
+tech_stack: [Technical Writing, AI Analysis, Research]
+type: newsletter
 ---
 
 ## 📝 Technical Writing & Thought Leadership
@@ -112,9 +117,18 @@ Each newsletter edition often includes:
 - Guest expert interviews
 - Community projects and hackathons
 
-## Subscribe
+## Links & Repository
 
-Interested in staying updated with the latest in AI and ML? [Subscribe to NeuraForge](https://neuraforge.substack.com) for weekly insights and practical knowledge.
+<div class="d-flex justify-content-center">
+    <a href="https://neuraforge.substack.com" class="btn btn-success btn-sm" target="_blank">
+        <i class="fa-solid fa-newspaper"></i> Read Newsletter
+    </a>
+    <a href="https://github.com/jnk-codes/neuraforge-newsletter" class="btn btn-primary btn-sm ml-2" target="_blank">
+        <i class="fa-brands fa-github"></i> View Repository
+    </a>
+</div>
+
+Interested in staying updated with the latest in AI and ML? Subscribe to NeuraForge for weekly insights and practical knowledge.
 
 ## Archive Highlights
 

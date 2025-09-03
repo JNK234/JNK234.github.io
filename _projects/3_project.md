@@ -5,6 +5,10 @@ description: National robotics competition - Automated warehouse system with ROS
 img: assets/img/3.jpg
 importance: 3
 category: work
+github: https://github.com/jnk-codes/eyrc-warehouse-automation
+github_repo: eyrc-warehouse-automation
+tech_stack: [ROS, Python, C++, Gazebo, OpenCV, PCL]
+achievement: "Score: 97.96/100 - Top 5% Nationally"
 ---
 
 ## 🏆 Top Performance - National Robotics Competition
@@ -130,10 +134,17 @@ This competition experience directly influenced my career trajectory:
 - Demonstrated leadership capabilities early in career
 - Published implementation details on GitHub (1000+ views)
 
-## Code Repository
+## Repository
 
-The complete implementation is available on [GitHub](https://github.com) with:
+<div class="d-flex justify-content-center">
+    <a href="https://github.com/jnk-codes/eyrc-warehouse-automation" class="btn btn-primary btn-sm" target="_blank">
+        <i class="fa-brands fa-github"></i> View Code
+    </a>
+    <span class="badge badge-success ml-2">Score: 97.96/100</span>
+</div>
+
+The complete implementation includes:
 - Comprehensive documentation
-- Setup instructions
+- Setup instructions  
 - Video demonstrations
 - Performance benchmarks

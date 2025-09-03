@@ -13,11 +13,11 @@ profile:
     <p>Northwestern University</p>
     <p>Chicago, IL</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: true # includes a list of news items
+  enabled: false # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
@@ -44,12 +44,11 @@ My research focuses on:
 - **Mechanistic Interpretability**: Understanding how AI models make decisions
 - **Agentic AI**: Developing autonomous AI systems with LangChain and LangGraph
 
-## Recent Highlights
+## Experience & Work
 
-- 🏆 **Finalist** for "Best Use of Generative AI" at TartanHacks 2025, Carnegie Mellon University
 - 🚀 **Applied Science Intern** at Relativity (Summer 2025)
-- 📊 Secured **$200k funding** at Boeing through AI-driven document automation demonstration
-- 🎓 Expected graduation: **December 2025** from Northwestern University
+- 📊 **Data Scientist** at Boeing - Secured **$200k funding** through AI-driven document automation demonstration
+- 🔬 **Research Assistant** at CCL Lab, Northwestern University - Developing innovative frameworks for code generation using genetic programming with state-of-the-art LLMs
 
 ## Technical Expertise
 

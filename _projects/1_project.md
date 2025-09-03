@@ -5,11 +5,13 @@ description: End-to-end AI marketing platform that revolutionizes campaign creat
 img: assets/img/7.jpg
 importance: 1
 category: work
+github: https://github.com/jnk-codes/advocate-ai-platform
+github_repo: advocate-ai-platform
+demo: https://advocate-demo.herokuapp.com
+tech_stack: [Python, FastAPI, Azure OpenAI, LangChain, ChromaDB, Redis, PostgreSQL, Docker]
 ---
 
-## 🏆 TartanHacks 2025 Finalist - "Best Use of Generative AI"
-
-AdVocate is an AI-powered marketing platform that transforms how businesses create and manage their marketing campaigns. Built during the prestigious TartanHacks 2025 at Carnegie Mellon University, this project was recognized as a finalist for the "Best Use of Generative AI" award.
+AdVocate is an AI-powered marketing platform that transforms how businesses create and manage their marketing campaigns. This innovative project leverages cutting-edge generative AI technologies to revolutionize marketing campaign creation.
 
 ## Key Features
 
@@ -81,9 +83,20 @@ Implemented a sophisticated caching mechanism that:
     </div>
 </div>
 
-## Recognition
+## Repository & Demo
 
-This project was developed during a 24-hour hackathon at Carnegie Mellon University, competing against teams from top universities. Being selected as a finalist for "Best Use of Generative AI" validates the innovative approach and technical excellence of the solution.
+<div class="d-flex justify-content-center">
+    <a href="https://github.com/jnk-codes/advocate-ai-platform" class="btn btn-primary btn-sm" target="_blank">
+        <i class="fa-brands fa-github"></i> View Code
+    </a>
+    <a href="https://advocate-demo.herokuapp.com" class="btn btn-success btn-sm ml-2" target="_blank">
+        <i class="fa-solid fa-external-link"></i> Live Demo
+    </a>
+</div>
+
+## Innovation & Impact
+
+This project demonstrates innovative use of generative AI in marketing automation, showcasing technical excellence through its scalable architecture and intelligent content generation capabilities.
 
 ## Future Enhancements
 

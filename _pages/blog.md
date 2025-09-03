@@ -3,7 +3,7 @@ layout: default
 permalink: /blog/
 title: blog
 nav: true
-nav_order: 1
+nav_order: 2
 pagination:
   enabled: true
   collection: posts
@@ -26,6 +26,11 @@ pagination:
   <div class="header-bar">
     <h1>{{ site.blog_name }}</h1>
     <h2>{{ site.blog_description }}</h2>
+    <p class="post-count"><i class="fa-solid fa-file-alt"></i> {{ site.posts.size }} posts published</p>
+  </div>
+  {% else %}
+  <div class="header-bar">
+    <p class="post-count"><i class="fa-solid fa-file-alt"></i> {{ site.posts.size }} posts published</p>
   </div>
   {% endif %}
 
