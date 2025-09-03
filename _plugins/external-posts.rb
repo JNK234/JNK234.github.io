@@ -25,7 +25,18 @@ module ExternalPosts
     def fetch_from_rss(site, src)
       begin
         puts "  Fetching RSS from: #{src['rss_url']}"
-        response = HTTParty.get(src['rss_url'])
+        
+        # Add headers to bypass bot detection
+        headers = {
+          'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept' => 'application/rss+xml, application/xml, text/xml, */*',
+          'Accept-Language' => 'en-US,en;q=0.9',
+          'Accept-Encoding' => 'gzip, deflate, br',
+          'Cache-Control' => 'no-cache',
+          'Pragma' => 'no-cache'
+        }
+        
+        response = HTTParty.get(src['rss_url'], headers: headers, timeout: 30)
         xml = response.body
         
         if xml.nil? || xml.empty?
@@ -35,6 +46,14 @@ module ExternalPosts
         
         puts "  Response size: #{xml.length} characters"
         puts "  Content-Type: #{response.headers['content-type']}"
+        
+        # Check if we got HTML instead of XML (bot protection)
+        if xml.include?('<!DOCTYPE html>') || xml.include?('<html')
+          puts "  Warning: Received HTML instead of XML from #{src['name']} (likely bot protection)"
+          puts "  HTML preview: #{xml[0..200]}..."
+          puts "  Feed will be skipped for this build."
+          return
+        end
         
         # Try to parse the feed with detailed error handling
         begin
