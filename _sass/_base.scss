@@ -2,6 +2,72 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
+// Improved spacing for about page
+.post {
+  article {
+    line-height: 1.7;
+    
+    p {
+      margin-bottom: 1.2rem;
+    }
+    
+    h2 {
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    ul, ol {
+      margin-bottom: 1.5rem;
+      
+      li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+      }
+    }
+    
+    .clearfix {
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .post-header {
+    margin-bottom: 2.5rem;
+    
+    .post-title {
+      margin-bottom: 1rem;
+    }
+    
+    .desc {
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+  }
+  
+  .profile {
+    margin: 0 0 2rem 2rem;
+    
+    .more-info {
+      margin-top: 1rem;
+      line-height: 1.4;
+      
+      p {
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+  
+  .social {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--global-divider-color);
+    
+    .contact-note {
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+  }
+}
+
 // Typography
 
 p,
