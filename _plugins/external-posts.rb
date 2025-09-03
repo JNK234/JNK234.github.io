@@ -24,11 +24,43 @@ module ExternalPosts
 
     def fetch_from_rss(site, src)
       begin
-        xml = HTTParty.get(src['rss_url']).body
-        return if xml.nil?
+        puts "  Fetching RSS from: #{src['rss_url']}"
+        response = HTTParty.get(src['rss_url'])
+        xml = response.body
         
-        # Try to parse the feed
-        feed = Feedjira.parse(xml)
+        if xml.nil? || xml.empty?
+          puts "  Warning: Empty response from #{src['name']} RSS feed"
+          return
+        end
+        
+        puts "  Response size: #{xml.length} characters"
+        puts "  Content-Type: #{response.headers['content-type']}"
+        
+        # Try to parse the feed with detailed error handling
+        begin
+          feed = Feedjira.parse(xml)
+        rescue Feedjira::NoParserAvailable => e
+          puts "  Warning: Feedjira failed to parse #{src['name']} RSS feed"
+          puts "  Error: #{e.message}"
+          puts "  XML preview: #{xml[0..200]}..."
+          
+          # Try manual RSS parsing as fallback
+          puts "  Attempting manual XML parsing as fallback..."
+          begin
+            doc = Nokogiri::XML(xml)
+            if doc.xpath('//item').any?
+              puts "  Found #{doc.xpath('//item').count} items via manual parsing"
+              process_manual_rss(site, src, doc)
+              return
+            else
+              puts "  No items found in manual XML parsing"
+              return
+            end
+          rescue StandardError => manual_error
+            puts "  Manual parsing also failed: #{manual_error.message}"
+            return
+          end
+        end
         
         # Check if feed was parsed successfully
         if feed.nil? || !feed.respond_to?(:entries)
@@ -42,14 +74,37 @@ module ExternalPosts
           return
         end
         
+        puts "  Successfully parsed #{feed.entries.count} entries"
         process_entries(site, src, feed.entries)
-      rescue Feedjira::NoParserAvailable => e
-        puts "  Warning: No valid parser for #{src['name']} RSS feed"
-        puts "  Error: #{e.message}"
-        puts "  Feed will be skipped for this build."
       rescue StandardError => e
         puts "  Warning: Error fetching RSS from #{src['name']}: #{e.message}"
         puts "  Feed will be skipped for this build."
+      end
+    end
+
+    def process_manual_rss(site, src, doc)
+      doc.xpath('//item').each do |item|
+        begin
+          title = item.xpath('.//title').text.strip
+          link = item.xpath('.//link').text.strip
+          description = item.xpath('.//description').text.strip
+          content = item.xpath('.//content:encoded').text.strip
+          pub_date_str = item.xpath('.//pubDate').text.strip
+          
+          # Parse the publication date
+          pub_date = Time.parse(pub_date_str).utc rescue Time.now.utc
+          
+          puts "  ...processing manual entry: #{title}"
+          create_document(site, src['name'], link, {
+            title: title,
+            content: content.empty? ? description : content,
+            summary: description,
+            published: pub_date
+          })
+        rescue StandardError => error
+          puts "  Warning: Could not process manual entry from #{src['name']}: #{error.message}"
+          puts "  Entry will be skipped."
+        end
       end
     end
 
