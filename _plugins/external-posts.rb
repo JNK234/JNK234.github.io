@@ -24,34 +24,41 @@ module ExternalPosts
 
     def fetch_from_rss(site, src)
       begin
-        puts "  Fetching RSS from: #{src['rss_url']}"
+        # Determine local feed file path based on source name
+        feed_filename = case src['name'].downcase
+        when 'medium'
+          '_data/medium_feed.xml'
+        when 'substack'
+          '_data/substack_feed.xml'
+        else
+          "_data/#{src['name'].downcase.gsub(/[^\w]/, '_')}_feed.xml"
+        end
         
-        # Add headers to bypass bot detection
-        headers = {
-          'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-          'Accept' => 'application/rss+xml, application/xml, text/xml, */*',
-          'Accept-Language' => 'en-US,en;q=0.9',
-          'Accept-Encoding' => 'gzip, deflate, br',
-          'Cache-Control' => 'no-cache',
-          'Pragma' => 'no-cache'
-        }
+        feed_path = File.join(site.source, feed_filename)
         
-        response = HTTParty.get(src['rss_url'], headers: headers, timeout: 30)
-        xml = response.body
+        puts "  Reading RSS feed from: #{feed_path}"
         
-        if xml.nil? || xml.empty?
-          puts "  Warning: Empty response from #{src['name']} RSS feed"
+        # Check if local feed file exists
+        unless File.exist?(feed_path)
+          puts "  Warning: Local feed file not found at #{feed_path}"
+          puts "  RSS feeds are now fetched by scheduled workflow. Please run the 'Fetch RSS Feeds' workflow manually or wait for the next scheduled run."
           return
         end
         
-        puts "  Response size: #{xml.length} characters"
-        puts "  Content-Type: #{response.headers['content-type']}"
+        # Read the local feed file
+        xml = File.read(feed_path)
         
-        # Check if we got HTML instead of XML (bot protection)
+        if xml.nil? || xml.empty?
+          puts "  Warning: Empty feed file at #{feed_path}"
+          return
+        end
+        
+        puts "  Feed file size: #{xml.length} characters"
+        
+        # Check if the file contains valid XML
         if xml.include?('<!DOCTYPE html>') || xml.include?('<html')
-          puts "  Warning: Received HTML instead of XML from #{src['name']} (likely bot protection)"
-          puts "  HTML preview: #{xml[0..200]}..."
-          puts "  Feed will be skipped for this build."
+          puts "  Warning: Feed file contains HTML instead of XML (cached bot protection response)"
+          puts "  Please check the RSS feed fetching workflow."
           return
         end
         
