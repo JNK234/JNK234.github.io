@@ -23,21 +23,50 @@ module ExternalPosts
     end
 
     def fetch_from_rss(site, src)
-      xml = HTTParty.get(src['rss_url']).body
-      return if xml.nil?
-      feed = Feedjira.parse(xml)
-      process_entries(site, src, feed.entries)
+      begin
+        xml = HTTParty.get(src['rss_url']).body
+        return if xml.nil?
+        
+        # Try to parse the feed
+        feed = Feedjira.parse(xml)
+        
+        # Check if feed was parsed successfully
+        if feed.nil? || !feed.respond_to?(:entries)
+          puts "  Warning: Could not parse RSS feed from #{src['name']} (#{src['rss_url']})"
+          puts "  Feed will be skipped for this build."
+          return
+        end
+        
+        if feed.entries.nil? || feed.entries.empty?
+          puts "  No entries found in #{src['name']} RSS feed"
+          return
+        end
+        
+        process_entries(site, src, feed.entries)
+      rescue Feedjira::NoParserAvailable => e
+        puts "  Warning: No valid parser for #{src['name']} RSS feed"
+        puts "  Error: #{e.message}"
+        puts "  Feed will be skipped for this build."
+      rescue StandardError => e
+        puts "  Warning: Error fetching RSS from #{src['name']}: #{e.message}"
+        puts "  Feed will be skipped for this build."
+      end
     end
 
     def process_entries(site, src, entries)
       entries.each do |e|
-        puts "...fetching #{e.url}"
-        create_document(site, src['name'], e.url, {
-          title: e.title,
-          content: e.content,
-          summary: e.summary,
-          published: e.published
-        })
+        begin
+          puts "...fetching #{e.url}"
+          create_document(site, src['name'], e.url, {
+            title: e.title,
+            content: e.content || e.summary,  # Fallback to summary if content is nil
+            summary: e.summary,
+            published: e.published
+          })
+        rescue StandardError => error
+          puts "  Warning: Could not process entry from #{src['name']}: #{error.message}"
+          puts "  Entry will be skipped."
+        end
       end
     end
 
