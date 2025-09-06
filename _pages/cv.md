@@ -1,37 +1,34 @@
 ---
-layout: page
+layout: cv
 permalink: /cv/
 title: cv
 nav: true
 nav_order: 4
-cv_pdf: Narasimha_Karthik_Resume.pdf # you can also use external links here
+cv_pdf: Narasimha_Karthik_Resume.pdf
 description: My comprehensive curriculum vitae highlighting my experience in AI/ML, research work, and technical achievements.
 ---
 
-<div class="text-center mb-4">
-  <a href="{{ 'assets/pdf/' | append: page.cv_pdf | relative_url }}" class="btn btn-primary btn-lg" target="_blank">
-    <i class="fa-solid fa-download"></i> Download PDF
-  </a>
-  <a href="{{ 'assets/pdf/' | append: page.cv_pdf | relative_url }}" class="btn btn-outline-secondary btn-lg ml-2" target="_blank">
-    <i class="fa-solid fa-external-link"></i> Open in New Tab
-  </a>
+<!-- PDF Download Section -->
+<div class="alert alert-info" role="alert">
+  <div class="d-flex align-items-center justify-content-between flex-wrap">
+    <div class="mb-2 mb-md-0">
+      <i class="fa-solid fa-info-circle me-2"></i>
+      <strong>Multiple Formats Available:</strong> View my CV in structured web format below, or download the traditional PDF version.
+    </div>
+    <div class="btn-group" role="group" aria-label="CV Download Options">
+      <a href="{{ 'assets/pdf/' | append: page.cv_pdf | relative_url }}" class="btn btn-primary" target="_blank">
+        <i class="fa-solid fa-download me-1"></i> Download PDF
+      </a>
+      <a href="{{ 'assets/pdf/' | append: page.cv_pdf | relative_url }}" class="btn btn-outline-primary" target="_blank">
+        <i class="fa-solid fa-external-link me-1"></i> View PDF
+      </a>
+    </div>
+  </div>
 </div>
 
-<div class="cv-container" style="width: 100%; height: 800px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-  <iframe 
-    src="{{ 'assets/pdf/' | append: page.cv_pdf | relative_url }}" 
-    width="100%" 
-    height="100%" 
-    style="border: none;"
-    title="CV PDF">
-    <p>Your browser does not support PDFs. 
-    <a href="{{ 'assets/pdf/' | append: page.cv_pdf | relative_url }}" target="_blank">Download the PDF</a> instead.</p>
-  </iframe>
+<!-- Web Version Introduction -->
+<div class="mb-4">
+  <p class="lead">This interactive web version of my CV provides detailed information about my experience, skills, and achievements in AI/ML and data science.</p>
 </div>
 
-<div class="text-center mt-3">
-  <small class="text-muted">
-    <i class="fa-solid fa-info-circle"></i> 
-    Having trouble viewing? <a href="{{ 'assets/pdf/' | append: page.cv_pdf | relative_url }}" target="_blank">Click here to open in a new tab</a>
-  </small>
-</div>
+<!-- Structured CV Content will be automatically rendered by the cv layout -->

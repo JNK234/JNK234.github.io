@@ -8,7 +8,7 @@
     - name: Languages
       value: English, Hindi, Telugu
     - name: Email
-      value: narasimha@u.northwestern.edu
+      value: narasimhajwalapuram2026@u.northwestern.edu
     - name: LinkedIn
       value: <a href="https://www.linkedin.com/in/narasimhakarthik/">narasimhakarthik</a>
     - name: Newsletter
@@ -19,14 +19,14 @@
   contents:
     - title: Master of Science in Artificial Intelligence
       institution: Northwestern University, Evanston, Illinois
-      year: 2024 - 2025
+      year: Jan 2024 - Dec 2025
       description:
         - Expected Graduation - December 2025
         - Focus on Machine Learning, NLP, and Reinforcement Learning
         - Research Assistant at CCL Lab
     - title: BTech in Electronics and Communication Engineering
       institution: PES University, Bengaluru, India
-      year: 2018 - 2022
+      year: Aug 2018 - Sep 2022
       description:
         - Graduated September 2022
         - Focus on Signal Processing and Embedded Systems
@@ -39,11 +39,15 @@
       institution: Relativity, Chicago, Illinois
       year: Jun 2025 - Aug 2025
       description:
-        - Upcoming internship in applied sciences and machine learning
+        - Led cross-functional initiative with Product, UX, and Engineering through 10+ customer interviews to define 6 AI-powered insights, transforming manual document review into automated triage with 60% time reduction
+        - Built insights extraction pipeline via systematic prompt engineering with LLM-as-Judge validation achieving 87.5% accuracy, eliminating 100% hallucinations through structured outputs, processing 46,864 legal documents
+        - Created 600+ document benchmark dataset combining real legal corpus with synthetic generation, improving model coverage from 60% to 95% for underrepresented categories
+        - Optimized prompts using benchmark dataset feedback loops, achieving 31.7% red flag detection rate, 95% classification accuracy, and 40% cost reduction through tiered GPT-4o/mini processing strategy
+        - Implemented scalable Databricks labeling system with 95% inter-rater agreement, delivering reusable YAML configuration framework and evaluation rubrics adopted by 3 subsequent Applied Science projects
 
     - title: Research Assistant
       institution: CCL Lab - Northwestern University, Evanston, Illinois
-      year: Sept 2024 - Present
+      year: Sep 2024 - Present
       description:
         - Developing frameworks for code generation using genetic programming with LLMs (Grok, Claude, DeepSeek)
         - Building verification and performance tracking systems for LLM-generated code
@@ -51,7 +55,7 @@
         
     - title: Data Scientist
       institution: The Boeing Company, Bengaluru, India
-      year: July 2022 - Aug 2024
+      year: Jul 2022 - Aug 2024
       description:
         - Developed dynamic cost prediction models for airplane parts with 2M+ rows of data
         - Created automated training and evaluation pipeline, reducing modeling time by 70%
@@ -64,7 +68,7 @@
         
     - title: Software Engineering Intern
       institution: Invento Robotics, Bengaluru, India
-      year: July 2021 - June 2022
+      year: Jul 2021 - Jun 2022
       description:
         - Developed 'Invento Fleet' iOS app with 10+ core features using SwiftUI and Swift 5
         - Implemented API-based video calling using TwilioVideo for robot-human communication
@@ -74,7 +78,7 @@
         
     - title: Software Developer Intern
       institution: Invento Robotics, Bengaluru, India
-      year: July 2020 - Aug 2020
+      year: Jul 2020 - Aug 2020
       description:
         - Built quality chatbots with NLP capabilities using Dialogflow API
         - Automated intent and entity creation, reducing time by 85%
@@ -122,7 +126,7 @@
         - Building trading bot integrating real-time market data with sentiment analysis
         
     - title: E-yantra Robotics Competition
-      year: Sept 2020 - May 2021
+      year: Sep 2020 - May 2021
       description:
         - Led 4-person team developing automated warehouse system using ROS and Gazebo
         - Optimized simulation performance by 50% through multi-threading

@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: AI/ML Engineer | Data Scientist | Research Assistant at Northwestern University
+subtitle: Positions Open for - Applied Scientist | Machine Learning Engineer | Applied Machine Learning Engineer | Aspiring Research Scientist
 
 profile:
   align: right
@@ -29,33 +29,18 @@ latest_posts:
 
 Welcome! I'm **Narasimha Karthik Jwalapuram**, an AI/ML Engineer and Data Scientist currently pursuing my Master's in Artificial Intelligence at Northwestern University.
 
-## About Me
-
-I'm passionate about leveraging cutting-edge AI technologies to solve complex real-world problems. With over 2 years of industry experience at Boeing and current research work at Northwestern's CCL Lab, I specialize in Large Language Models (LLMs), Natural Language Processing, and building scalable AI systems.
-
-Currently, I'm working as a Research Assistant at the CCL Lab at Northwestern University, where I'm developing innovative frameworks for code generation using genetic programming with state-of-the-art LLMs like Grok, Claude, and DeepSeek models.
+I specialize in Large Language Models (LLMs), Natural Language Processing, and building scalable AI systems. With experience at Boeing and current research work at Northwestern's CCL Lab, I focus on developing innovative AI solutions for real-world problems.
 
 ## Research Interests
+- **LLM Training & Fine-tuning**: GPT-2, Llama, and custom architectures
+- **Reinforcement Learning**: Optimization and decision-making systems  
+- **Agentic AI**: LangChain and LangGraph frameworks
 
-My research focuses on:
-- **LLM Training & Fine-tuning**: Experience with GPT-2, Llama, and custom model architectures
-- **Reinforcement Learning**: Applying RL techniques for optimization problems
-- **Natural Language Processing**: Building RAG systems and document automation solutions
-- **Mechanistic Interpretability**: Understanding how AI models make decisions
-- **Agentic AI**: Developing autonomous AI systems with LangChain and LangGraph
+## Recent Work
+- 🚀 **Relativity**: Led AI initiative reducing document review time by 60%
+- 📊 **Boeing**: Secured $200k funding for AI-driven automation
+- 🔬 **CCL Lab**: Developing code generation frameworks with genetic programming
 
-## Experience & Work
+**Technical Stack**: Python, PyTorch, LangChain, ChromaDB, FastAPI
 
-- 🚀 **Applied Science Intern** at Relativity (Summer 2025)
-- 📊 **Data Scientist** at Boeing - Secured **$200k funding** through AI-driven document automation demonstration
-- 🔬 **Research Assistant** at CCL Lab, Northwestern University - Developing innovative frameworks for code generation using genetic programming with state-of-the-art LLMs
-
-## Technical Expertise
-
-**Languages & Core Skills**: Python, SQL, PyTorch, Transformers, Pandas, NumPy
-
-**AI/ML Frameworks**: LangChain, LangGraph, ChromaDB, Elasticsearch, LlamaIndex, Sklearn, XGBoost
-
-**Specialized Experience**: PEFT, RLHF techniques, Multi-GPU training (A100s), RAG systems, Vector databases
-
-Feel free to explore my projects, read about my research, or connect with me on [LinkedIn](https://www.linkedin.com/in/narasimhakarthik/) to discuss AI, machine learning, or potential collaborations!
+Feel free to connect on [LinkedIn](https://www.linkedin.com/in/narasimhakarthik/) or check out my [newsletter](https://neuraforge.substack.com)!
