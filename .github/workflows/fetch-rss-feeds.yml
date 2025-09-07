@@ -18,7 +18,86 @@ jobs:
 
       - name: Fetch Substack RSS Feed
         run: |
-          curl -L -H "User-Agent: Mozilla/5.0 (compatible; RSS-Bot/1.0)" -H "Accept: application/rss+xml, application/xml, text/xml" -o _data/substack_feed.xml "https://neuraforge.substack.com/feed" || echo "Failed to fetch Substack feed"
+          # Function to check if fetched content is valid RSS
+          check_rss_validity() {
+            if grep -q "<!DOCTYPE html>" "$1" || grep -q "<html" "$1"; then
+              echo "Detected HTML/Cloudflare challenge, not valid RSS"
+              return 1
+            elif grep -q "<rss" "$1" || grep -q "<feed" "$1"; then
+              echo "Valid RSS/Atom feed detected"
+              return 0
+            else
+              echo "Unknown content type"
+              return 1
+            fi
+          }
+          
+          # Create backup of existing feed if it's valid
+          if [ -f "_data/substack_feed.xml" ] && check_rss_validity "_data/substack_feed.xml"; then
+            cp "_data/substack_feed.xml" "_data/substack_feed_backup.xml"
+            echo "Created backup of valid existing feed"
+          fi
+          
+          # Retry logic with different approaches
+          success=false
+          
+          for attempt in 1 2 3; do
+            echo "Attempt $attempt: Fetching Substack RSS..."
+            
+            # Try different user agents and delays
+            case $attempt in
+              1) 
+                sleep $((RANDOM % 10 + 5))  # Random delay 5-15s
+                curl -L -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36" \
+                     -H "Accept: application/rss+xml, application/xml, text/xml" \
+                     -H "Cache-Control: no-cache" \
+                     --connect-timeout 30 --max-time 60 \
+                     -o "_data/substack_feed_temp.xml" \
+                     "https://neuraforge.substack.com/feed"
+                ;;
+              2)
+                sleep $((RANDOM % 20 + 10))  # Random delay 10-30s
+                curl -L -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+                     -H "Accept: */*" \
+                     -H "Referer: https://neuraforge.substack.com/" \
+                     --connect-timeout 45 --max-time 90 \
+                     -o "_data/substack_feed_temp.xml" \
+                     "https://neuraforge.substack.com/feed"
+                ;;
+              3)
+                sleep $((RANDOM % 30 + 15))  # Random delay 15-45s  
+                curl -L -H "User-Agent: FeedReader/1.0 (RSS Bot)" \
+                     -H "Accept: application/rss+xml, application/atom+xml, application/xml, text/xml" \
+                     --connect-timeout 60 --max-time 120 \
+                     -o "_data/substack_feed_temp.xml" \
+                     "https://neuraforge.substack.com/feed"
+                ;;
+            esac
+            
+            # Check if fetch was successful and content is valid
+            if [ -f "_data/substack_feed_temp.xml" ] && check_rss_validity "_data/substack_feed_temp.xml"; then
+              mv "_data/substack_feed_temp.xml" "_data/substack_feed.xml"
+              echo "Successfully fetched valid Substack RSS feed on attempt $attempt"
+              success=true
+              break
+            else
+              echo "Attempt $attempt failed - invalid content or blocked"
+              rm -f "_data/substack_feed_temp.xml"
+            fi
+          done
+          
+          # If all attempts failed, restore backup if available
+          if [ "$success" = false ]; then
+            if [ -f "_data/substack_feed_backup.xml" ]; then
+              mv "_data/substack_feed_backup.xml" "_data/substack_feed.xml"
+              echo "All attempts failed - restored previous valid feed from backup"
+            else
+              echo "All attempts failed and no valid backup available"
+            fi
+          else
+            # Clean up backup on success
+            rm -f "_data/substack_feed_backup.xml"
+          fi
 
       - name: Check for changes and commit
         run: |
