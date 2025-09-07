@@ -14,11 +14,11 @@ jobs:
 
       - name: Fetch Medium RSS Feed
         run: |
-          curl -L -o _data/medium_feed.xml "https://medium.com/@narasimhakarthik/feed" || echo "Failed to fetch Medium feed"
+          curl -L -H "User-Agent: Mozilla/5.0 (compatible; RSS-Bot/1.0)" -o _data/medium_feed.xml "https://medium.com/@narasimhakarthik/feed" || echo "Failed to fetch Medium feed"
 
       - name: Fetch Substack RSS Feed
         run: |
-          curl -L -o _data/substack_feed.xml "https://neuraforge.substack.com/feed" || echo "Failed to fetch Substack feed"
+          curl -L -H "User-Agent: Mozilla/5.0 (compatible; RSS-Bot/1.0)" -H "Accept: application/rss+xml, application/xml, text/xml" -o _data/substack_feed.xml "https://neuraforge.substack.com/feed" || echo "Failed to fetch Substack feed"
 
       - name: Check for changes and commit
         run: |
