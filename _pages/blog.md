@@ -34,24 +34,22 @@ pagination:
   </div>
   {% endif %}
 
-{% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
+{% comment %} Get top 5 most used tags from all posts {% endcomment %}
+{% assign tag_counts = '' | split: '' %}
+{% for post in site.posts %}
+  {% for tag in post.tags %}
+    {% assign tag_counts = tag_counts | push: tag %}
+  {% endfor %}
+{% endfor %}
 
+{% assign unique_tags = tag_counts | group_by_exp: "tag", "tag" | sort: "size" | reverse | slice: 0, 5 %}
+
+{% if unique_tags.size > 0 %}
   <div class="tag-category-list">
     <ul class="p-0 m-0">
-      {% for tag in site.display_tags %}
+      {% for tag_group in unique_tags %}
         <li>
-          <i class="fa-solid fa-hashtag fa-sm"></i> <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag }}</a>
-        </li>
-        {% unless forloop.last %}
-          <p>&bull;</p>
-        {% endunless %}
-      {% endfor %}
-      {% if site.display_categories.size > 0 and site.display_tags.size > 0 %}
-        <p>&bull;</p>
-      {% endif %}
-      {% for category in site.display_categories %}
-        <li>
-          <i class="fa-solid fa-tag fa-sm"></i> <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">{{ category }}</a>
+          <i class="fa-solid fa-hashtag fa-sm"></i> <a href="{{ tag_group.name | slugify | prepend: '/blog/tag/' | relative_url }}">{{ tag_group.name }}</a>
         </li>
         {% unless forloop.last %}
           <p>&bull;</p>
@@ -59,7 +57,7 @@ pagination:
       {% endfor %}
     </ul>
   </div>
-  {% endif %}
+{% endif %}
 
 {% assign featured_posts = site.posts | where: "featured", "true" %}
 {% if featured_posts.size > 0 %}
@@ -113,6 +111,14 @@ pagination:
     {% else %}
       {% assign postlist = site.posts %}
     {% endif %}
+
+    {% if postlist.size == 0 %}
+      <div class="text-center" style="padding: 3rem 0;">
+        <i class="fa-solid fa-pen-to-square fa-3x text-muted"></i>
+        <h3 class="mt-3 text-muted">No blog posts yet</h3>
+        <p class="text-muted">Check back soon for new content, or see the <a href="{{ '/HOW-TO-BLOG/' | relative_url }}">blogging guide</a> to get started.</p>
+      </div>
+    {% else %}
 
     {% for post in postlist %}
 
@@ -191,6 +197,8 @@ pagination:
     </li>
 
     {% endfor %}
+
+    {% endif %}
 
   </ul>
 

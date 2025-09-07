@@ -142,7 +142,9 @@ module ExternalPosts
             title: e.title,
             content: e.content || e.summary,  # Fallback to summary if content is nil
             summary: e.summary,
-            published: e.published
+            published: e.published,
+            tags: e.respond_to?(:categories) ? e.categories : nil,
+            categories: e.respond_to?(:itunes_categories) ? e.itunes_categories : nil
           })
         rescue StandardError => error
           puts "  Warning: Could not process entry from #{src['name']}: #{error.message}"
@@ -172,9 +174,15 @@ module ExternalPosts
       doc.data['description'] = content[:summary]
       doc.data['date'] = content[:published]
       doc.data['redirect'] = url
+      
+      # Add tags from RSS if available
+      doc.data['tags'] = content[:tags] if content[:tags] && !content[:tags].empty?
+      doc.data['categories'] = content[:categories] if content[:categories] && !content[:categories].empty?
+      
       doc.content = content[:content]
       site.collections['posts'].docs << doc
     end
+    
 
     def fetch_from_urls(site, src)
       src['posts'].each do |post|
