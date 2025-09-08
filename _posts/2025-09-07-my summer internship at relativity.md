@@ -8,7 +8,10 @@ categories: [career]
 giscus_comments: false
 related_posts: false
 featured: true
+og_image: assets/img/Relativity-img.jpg
 ---
+![Relativity Mission]({{ 'assets/img/Relativity-img.jpg' | relative_url }})
+
 I spent the last three months as an Applied Science Intern at Relativity, working on how AI gets deployed in the legal tech domain. The experience taught me something I hadn't expected: in high-stakes fields, the technology is often the easy part.
 
 **[Relativity](https://www.relativity.com/)** leads the e-discovery platform space, helping lawyers and legal teams turn e-discovery into easy discovery. From early-stage case preparation to production, they enable teams to move seamlessly through each phase of legal matters in one platform.
@@ -37,9 +40,7 @@ Deep learning models are universal approximators, theoretically capable of solvi
 The transformation in how we approach problems is striking. Since models are powerful enough, I could achieve desired results through accurate prompt engineering, efficient RAG mechanisms, or partial fine-tuning (rarely - if required). Models are becoming cheaper and more powerful—the cost per million tokens continues dropping significantly. This means we can build and deliver value lot more for less costs.
 
 ![Cost per million tokens is reducing over the years]({{ '/assets/img/model-costs.png' }})
-*Source: [ProductMann 
-  Medium](https://productmann.medium.com/long-term-token-usage-and-cost
-  s-trends-insights-from-martians-founder-fd8259445d59)*
+*Source: [ProductMann Medium](https://productmann.medium.com/long-term-token-usage-and-costs-trends-insights-from-martians-founder-fd8259445d59)*
 
 As Andrej Karpathy put it, "English is the hottest programming language." These models represent a new abstraction for solution creation, different from past approaches using mathematical models with parameters to model data and problems.
 
