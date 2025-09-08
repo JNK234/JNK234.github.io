@@ -1,30 +1,27 @@
 ---
 layout: page
-title: AdVocate - AI Marketing Platform
-description: End-to-end AI marketing platform that revolutionizes campaign creation
+title: AdVocate - AI-Powered Ad Generator
+description: Automated marketing research and ad generation using Claude AI, LangGraph, and Stable Diffusion
 img: assets/img/7.jpg
 importance: 1
 category: work
-github: https://github.com/jnk-codes/advocate-ai-platform
-github_repo: advocate-ai-platform
-demo: https://advocate-demo.herokuapp.com
-tech_stack: [Python, FastAPI, Azure OpenAI, LangChain, ChromaDB, Redis, PostgreSQL, Docker]
+github: https://github.com/JNK234/AdVocate-Agentic-Ad-Generator
 ---
 
-AdVocate is an AI-powered marketing platform that transforms how businesses create and manage their marketing campaigns. This innovative project leverages cutting-edge generative AI technologies to revolutionize marketing campaign creation.
+AdVocate is an AI-powered platform that automates the creation of marketing research and advertisements using Claude AI, LangGraph, and Stable Diffusion. It employs specialized AI agents to streamline market analysis, strategy development, and content generation.
 
 ## Key Features
 
-### 🚀 90% Faster Campaign Creation
-- Automated content generation using Azure OpenAI
-- Multi-channel campaign support (social media, email, web)
-- Intelligent audience targeting with AI-driven insights
+### 🎯 Intelligent Agent Architecture
+- **Research Agent**: Conducts automated market research using Claude AI
+- **Marketing Agent**: Develops comprehensive marketing strategies with LangGraph
+- **Ad Generator**: Creates engaging ad content and visuals using Stable Diffusion
 
-### 🏗️ Technical Architecture
-- **Microservices Architecture**: Scalable, modular design for high performance
-- **AI Stack**: Azure OpenAI, LangChain, ChromaDB for intelligent content generation
-- **Caching System**: Two-tier caching reducing API costs by 60%
-- **Production-Ready**: Handles 50+ concurrent users with sub-second response times
+### 🚀 Technical Capabilities
+- **Automated Market Research**: In-depth market analysis and competitor research
+- **AI-Driven Marketing Strategies**: Data-driven campaign planning and audience profiling
+- **Multi-Modal Content Generation**: Text and visual content creation in one platform
+- **Workflow Orchestration**: LangGraph-powered agent coordination for seamless operations
 
 ## Technical Implementation
 

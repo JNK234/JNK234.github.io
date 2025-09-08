@@ -2,7 +2,7 @@
 layout: page
 title: NeuraForge Newsletter
 description: Technical newsletter on Generative AI and Machine Learning trends
-img: assets/img/12.jpg
+img: assets/img/4.jpg
 redirect: https://neuraforge.substack.com
 importance: 4
 category: work

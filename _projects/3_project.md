@@ -1,150 +1,124 @@
 ---
-layout: page
-title: E-yantra Robotics Competition
-description: National robotics competition - Automated warehouse system with ROS
-img: assets/img/3.jpg
+layout: page  
+title: LEAR - LLM-Driven Evolution of Agent-Based Rules
+description: Using LLMs to evolve agent behaviors in multi-agent systems through automated code generation
+img: assets/img/2.jpg
 importance: 3
-category: work
-github: https://github.com/jnk-codes/eyrc-warehouse-automation
-github_repo: eyrc-warehouse-automation
-tech_stack: [ROS, Python, C++, Gazebo, OpenCV, PCL]
-achievement: "Score: 97.96/100 - Top 5% Nationally"
+category: research
+github: https://github.com/can-gurkan/LEAR
 ---
 
-## 🏆 Top Performance - National Robotics Competition
+## 🧬 Evolutionary Agent-Based Modeling with LLMs
 
-E-yantra is India's premier robotics competition hosted by IIT Bombay, where teams from across the country compete to solve real-world problems using robotics and automation. Our team achieved an exceptional score of **97.96/100** in the 2020-21 edition.
+LEAR (LLM-Driven Evolution of Agent-Based Rules) is a cutting-edge research project that explores using Large Language Models within Agent-Based Modeling environments to iteratively enhance agent movement and functionality through automated code generation. This work was accepted to **GECCO '25**.
 
-## Competition Challenge: Automated Warehouse Management
+## Research Overview
 
-### Problem Statement
-Design and implement a fully automated warehouse management system capable of:
-- Autonomous navigation and path planning
-- Package identification and sorting
-- Multi-robot coordination
-- Real-time inventory management
-- Optimal delivery scheduling
+### Core Innovation
+This project introduces a novel methodology where evolution operates at a higher abstraction level by mutating pseudocode representations of agent behaviors, subsequently converting them into executable code through LLM-mediated steps.
 
-## Technical Implementation
+### Key Contributions
+- **Semantic Evolution**: Leverages LLMs to introduce semantically meaningful variations during evolution
+- **Abstraction-Level Mutation**: Operates on pseudocode for more innovative solutions
+- **Systematic Comparison**: Evaluates different prompting strategies for code generation
+- **Multi-Agent Benchmarks**: Provides comprehensive evaluation frameworks
 
-### System Architecture
-```
-ROS Master Node
-├── Navigation Stack
-│   ├── SLAM (gmapping)
-│   ├── Path Planning (A* algorithm)
-│   └── Obstacle Avoidance
-├── Computer Vision
-│   ├── ArUco Marker Detection
-│   ├── Package Recognition
-│   └── Color-based Sorting
-└── Control Systems
-    ├── PID Controllers
-    ├── State Machine
-    └── Multi-threading
-```
+## Technical Approach
 
-### Key Technologies
+### Architecture Components
 
-#### Robotics & Simulation
-- **ROS (Robot Operating System)**: Distributed computing framework
-- **Gazebo Simulator**: Physics-based 3D simulation
-- **RViz**: Visualization and debugging
-- **MoveIt**: Motion planning framework
-
-#### Algorithms & Optimization
-- **Path Planning**: Custom A* implementation with dynamic re-routing
-- **Task Scheduling**: Priority queue-based package delivery
-- **Multi-threading**: 50% performance improvement in simulation
-- **State Machine**: Finite state machine for robot behavior
-
-## Competition Performance
-
-### Technical Achievements
-- **Score**: 97.96/100 (Top 5% nationally)
-- **Simulation Speed**: 50% faster than baseline through optimization
-- **Accuracy**: 100% package delivery success rate
-- **Efficiency**: 30% reduction in total path distance
-
-### Implementation Highlights
-
-#### 1. Multi-Robot Coordination
+#### LLM-Driven Evolution
 ```python
-# Distributed task allocation algorithm
-- Dynamic priority assignment
-- Collision-free path planning
-- Real-time communication via ROS topics
+# Evolution Pipeline
+1. Generate initial agent behaviors
+2. Evaluate performance in NetLogo environment
+3. Use LLM to propose semantic mutations
+4. Convert pseudocode to executable code
+5. Iterate through generations
 ```
 
-#### 2. Computer Vision Pipeline
-```python
-# Package identification system
-- ArUco marker detection for precise localization
-- HSV color space for robust color detection
-- Real-time processing at 30 FPS
+#### Prompting Strategies
+- **Direct Code Generation**: LLM generates executable code directly
+- **Pseudocode Intermediate**: Evolution on abstract representations
+- **Guided Mutation**: Semantically meaningful variation operators
+- **Fitness-Informed**: Performance metrics guide evolution
+
+### Multi-Agent Domains
+- Movement optimization in complex environments
+- Collective behavior emergence
+- Resource allocation strategies
+- Swarm intelligence patterns
+
+## Implementation Stack
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <b>Core Technologies</b>
+        <ul>
+            <li>Python with Rye management</li>
+            <li>NetLogo for ABM</li>
+            <li>LLM integration layer</li>
+            <li>Evolutionary algorithms</li>
+        </ul>
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        <b>Evaluation Framework</b>
+        <ul>
+            <li>Performance benchmarks</li>
+            <li>Code quality metrics</li>
+            <li>Behavioral diversity</li>
+            <li>Convergence analysis</li>
+        </ul>
+    </div>
+</div>
+
+## Research Impact
+
+### Academic Contributions
+- **Publication**: Accepted at Genetic and Evolutionary Computation Conference (GECCO '25)
+- **Novel Methodology**: First systematic exploration of LLM-driven evolution in ABM
+- **Open Source**: Complete implementation and benchmarks available
+
+### Practical Applications
+- Automated agent behavior design
+- Complex system optimization
+- Emergent behavior discovery
+- Code synthesis for simulations
+
+## Experimental Results
+
+### Performance Metrics
+- Demonstrates superior solution quality compared to traditional GP
+- Achieves faster convergence through semantic mutations
+- Produces more interpretable agent behaviors
+- Scales effectively to complex multi-agent scenarios
+
+### Key Findings
+- LLMs excel at introducing meaningful behavioral variations
+- Pseudocode evolution enables discovery of novel strategies
+- Natural language training data enhances solution creativity
+- Systematic prompt engineering significantly impacts performance
+
+## Citation
+
+```bibtex
+@inproceedings{LEAR_GURKAN,
+  author = {Gurkan, Can and Jwalapuram, Narasimha Karthik and 
+            Wang, Kevin and Danda, Rudy and Rasmussen, Leif and 
+            Chen, John and Wilensky, Uri},
+  title = {LEAR: LLM-Driven Evolution of Agent-Based Rules},
+  year = {2025},
+  booktitle = {Proceedings of GECCO '25},
+  publisher = {ACM},
+  doi = {10.1145/3712255.3734368}
+}
 ```
-
-#### 3. Performance Optimization
-- Implemented multi-threading for parallel task execution
-- Optimized path planning algorithm reducing computation by 40%
-- Custom message types for efficient ROS communication
-
-## Team Leadership
-
-As **Team Lead**, I was responsible for:
-- System architecture design and integration
-- Task delegation and sprint planning
-- Code review and quality assurance
-- Weekly progress presentations to mentors
-
-### Team Management
-- Led 4-person team through 6-month development cycle
-- Conducted daily stand-ups and weekly retrospectives
-- Managed Git workflow and CI/CD pipeline
-- Coordinated with IIT Bombay mentors for technical guidance
-
-## Learning Outcomes
-
-### Technical Skills Gained
-- Advanced ROS development and debugging
-- Real-time system optimization
-- Computer vision implementation
-- Distributed system architecture
-
-### Soft Skills Developed
-- Technical leadership
-- Project management
-- Remote collaboration (during COVID-19)
-- Problem-solving under pressure
-
-## Competition Timeline
-
-**Sept 2020**: Team formation and problem statement release
-**Oct-Nov 2020**: Algorithm development and simulation setup
-**Dec 2020-Jan 2021**: Implementation and optimization
-**Feb-Mar 2021**: Testing and refinement
-**April 2021**: Final submission and evaluation
-**May 2021**: Results announcement - Score: 97.96/100
-
-## Impact
-
-This competition experience directly influenced my career trajectory:
-- Foundation for robotics and automation expertise
-- Led to internship opportunity at Invento Robotics
-- Demonstrated leadership capabilities early in career
-- Published implementation details on GitHub (1000+ views)
 
 ## Repository
 
 <div class="d-flex justify-content-center">
-    <a href="https://github.com/jnk-codes/eyrc-warehouse-automation" class="btn btn-primary btn-sm" target="_blank">
-        <i class="fa-brands fa-github"></i> View Code
+    <a href="https://github.com/can-gurkan/LEAR" class="btn btn-primary btn-sm" target="_blank">
+        <i class="fa-brands fa-github"></i> View on GitHub
     </a>
-    <span class="badge badge-success ml-2">Score: 97.96/100</span>
+    <span class="badge badge-success ml-2">GECCO '25</span>
 </div>
-
-The complete implementation includes:
-- Comprehensive documentation
-- Setup instructions  
-- Video demonstrations
-- Performance benchmarks

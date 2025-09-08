@@ -11,7 +11,6 @@ featured: false           # Set to true to feature this post
 toc:
   sidebar: left           # Optional: add table of contents (remove if not needed)
 ---
-
 ## Introduction
 
 Write your introduction here. This is where you hook your readers and explain what they'll learn from this post.
@@ -23,6 +22,7 @@ Write your introduction here. This is where you hook your readers and explain wh
 Your content here. You can include:
 
 - **Code blocks:**
+
 ```python
 def example_function():
     return "Hello, world!"
@@ -30,7 +30,7 @@ def example_function():
 
 - **Lists and bullet points**
 - **Images:** `![Alt text]({{ '/assets/img/your-image.jpg' | relative_url }})`
-- **Links:** [Link text](https://example.com)
+- Links: [Link text](https://example.com)
 
 ### Subsection 2
 
@@ -51,6 +51,7 @@ Wrap up your post with key takeaways or next steps.
 5. **Publish:** Commit and push to GitHub - the site will rebuild automatically
 
 **Front matter field explanations:**
+
 - `date`: Use format YYYY-MM-DD HH:MM:SS-TTTT (timezone offset)
 - `tags`: Help readers find related content
 - `categories`: Organize your posts by type

@@ -19,7 +19,7 @@ I worked in their Applied Science Team, whose role is to develop AI solutions po
 
 I joined the **[aiR for Review](https://www.relativity.com/data-solutions/air/review/)** team, which builds document review tools. The product helps firms process hundreds of thousands of documents to identify what matters—like the difference between reading every page in a library versus knowing exactly which three books contain what you need.
 
-My assignment was working on what became **aiR Insights**, a feature to automatically extract meaningful information from documents. The legal teams had a simple problem: they'd receive 100,000 documents with no idea what was in them. Was there something damaging? Something useful? They wouldn't know until someone read everything. Like Mike Ross reading through thousands of documents overnight to find that one critical piece, or identifying red flags that might disrupt a case.
+My assignment was working on what became **aiR Insights**, a feature to automatically extract meaningful information from documents. The legal teams had a simple problem: they'd receive 100,000 documents with no idea what was in them. Was there something damaging? Something useful? They wouldn't know until someone read everything. (Like Mike Ross reading through thousands of documents overnight to find that one critical piece, or identifying red flags that might disrupt a case. )
 
 ## A Different Kind of Problem Statement
 
@@ -37,6 +37,9 @@ Deep learning models are universal approximators, theoretically capable of solvi
 The transformation in how we approach problems is striking. Since models are powerful enough, I could achieve desired results through accurate prompt engineering, efficient RAG mechanisms, or partial fine-tuning (rarely - if required). Models are becoming cheaper and more powerful—the cost per million tokens continues dropping significantly. This means we can build and deliver value lot more for less costs.
 
 ![Cost per million tokens is reducing over the years]({{ '/assets/img/model-costs.png' }})
+*Source: [ProductMann 
+  Medium](https://productmann.medium.com/long-term-token-usage-and-cost
+  s-trends-insights-from-martians-founder-fd8259445d59)*
 
 As Andrej Karpathy put it, "English is the hottest programming language." These models represent a new abstraction for solution creation, different from past approaches using mathematical models with parameters to model data and problems.
 

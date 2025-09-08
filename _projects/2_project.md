@@ -1,139 +1,125 @@
 ---
 layout: page
-title: Options Trading Intelligence Platform
-description: Real-time options trading bot with sentiment-driven market insights
-img: assets/img/3.jpg
+title: Second OpinAIon - Medical Diagnosis System
+description: Medical diagnosis assistant using causal inference and LLMs for comprehensive analysis
+img: assets/img/1.jpg
 importance: 2
 category: work
-github: https://github.com/jnk-codes/options-trading-platform
-github_repo: options-trading-platform
-tech_stack: [Python, PyTorch, NumPy, Pandas, FastAPI, Apache Kafka, TimescaleDB, Redis, Docker]
-status: in_development
+github: https://github.com/JNK234/Second-OpinAIon
 ---
 
-## Advanced Options & Derivatives Prediction System
+## 🏥 Advanced Medical Diagnosis with Causal Inference
 
-A sophisticated trading platform that combines statistical modeling with deep learning to predict options movements and execute intelligent trades in real-time.
+Second OpinAIon is a sophisticated medical diagnosis system that leverages causal inference and large language models to provide comprehensive medical analysis, diagnosis, and treatment recommendations for healthcare professionals.
 
-## Project Overview
+## Key Features
 
-This ongoing project represents the convergence of quantitative finance and artificial intelligence, creating a system that analyzes market patterns, sentiment data, and historical trends to make informed trading decisions.
+### 🔬 Causal Inference Engine
+- **Causal Graph Analysis**: Identifies and visualizes causal relationships between medical factors
+- **Counterfactual Reasoning**: Evaluates alternative scenarios to strengthen diagnostic confidence
+- **Evidence-Based Diagnosis**: Ranks potential diagnoses based on causal analysis
+
+### 💊 Treatment Intelligence
+- **Treatment Categorization**: Classifies treatments as causal, preventative, or symptomatic
+- **Patient-Specific Planning**: Tailors treatment plans to individual patient needs
+- **Comprehensive Reporting**: Generates detailed PDF reports for documentation
+
+### 🤖 AI-Powered Analysis
+- **Multi-Stage Workflow**: Systematic approach from factor extraction to final treatment plan
+- **Interactive Visualization**: Dynamic causal graphs and treatment comparisons
+- **Natural Language Interface**: Chat-based interaction with the AI assistant
 
 ## Technical Architecture
 
 ### Core Components
 
-#### 1. Market Data Pipeline
-- **Real-time Data Ingestion**: Streaming market data from multiple exchanges
-- **Historical Data Processing**: 5+ years of options chain data
-- **Feature Engineering**: 100+ technical indicators and custom metrics
-
-#### 2. Prediction Models
+#### Medical Factor Extraction
 ```python
-# Hybrid Architecture
-- Statistical Models: GARCH, Black-Scholes variations
-- Neural Networks: LSTM for time series prediction
-- Ensemble Methods: Combining predictions for robustness
+# Identifies from patient cases:
+- Symptoms and conditions
+- Test results and vital signs
+- Medical history factors
+- Environmental influences
 ```
 
-#### 3. Sentiment Analysis Engine
-- **News Scraping**: Real-time financial news analysis
-- **Social Media Monitoring**: Reddit (WSB), Twitter sentiment
-- **NLP Pipeline**: BERT-based sentiment classification
+#### Causal Analysis Pipeline
+- Establishes causal relationships (e.g., "Appendicitis → Right Lower Quadrant Pain")
+- Validates completeness of medical information
+- Performs counterfactual analysis for alternative explanations
+- Ranks diagnoses based on causal evidence
 
-## Key Features
+#### Treatment Planning System
+- **Causal Treatment**: Addresses root causes
+- **Preventative Care**: Prevents complications
+- **Symptomatic Management**: Provides relief while treating causes
+- **Personalized Adjustments**: Considers patient-specific factors
 
-### Intelligent Risk Management
-- Dynamic position sizing based on Kelly Criterion
-- Real-time Greeks calculation and hedging
-- Portfolio optimization using Modern Portfolio Theory
-
-### Backtesting Framework
-- Historical performance validation
-- Monte Carlo simulations for stress testing
-- Walk-forward optimization to prevent overfitting
-
-### Execution System
-- Smart order routing for best execution
-- Slippage minimization algorithms
-- Automated stop-loss and take-profit mechanisms
-
-## Technologies Stack
+## Workflow Stages
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        <b>Data & ML</b>
+        <b>Initial Analysis</b>
         <ul>
-            <li>Python (NumPy, Pandas)</li>
-            <li>PyTorch / TensorFlow</li>
-            <li>Scikit-learn</li>
-            <li>QuantLib</li>
+            <li>Patient case entry</li>
+            <li>Medical factor extraction</li>
+            <li>Causal relationship mapping</li>
         </ul>
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        <b>Infrastructure</b>
+        <b>Diagnosis Phase</b>
         <ul>
-            <li>Apache Kafka (streaming)</li>
-            <li>TimescaleDB</li>
-            <li>Redis (caching)</li>
-            <li>Docker / Kubernetes</li>
+            <li>Information validation</li>
+            <li>Counterfactual analysis</li>
+            <li>Diagnosis generation</li>
         </ul>
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        <b>APIs & Tools</b>
+        <b>Treatment Planning</b>
         <ul>
-            <li>Interactive Brokers API</li>
-            <li>Alpha Vantage</li>
-            <li>Yahoo Finance</li>
-            <li>Grafana (monitoring)</li>
+            <li>Treatment identification</li>
+            <li>Patient-specific tailoring</li>
+            <li>Final plan generation</li>
         </ul>
     </div>
 </div>
+
+## Technology Stack
+
+- **AI Framework**: Azure OpenAI API for LLM capabilities
+- **Backend**: Python with Streamlit for web interface
+- **Visualization**: Interactive causal graph generation
+- **Documentation**: Automated PDF report generation
+- **Analysis**: Causal inference algorithms and counterfactual reasoning
+
+## Use Cases
+
+### Clinical Decision Support
+- Assists healthcare professionals in complex diagnoses
+- Provides second opinions with causal explanations
+- Identifies potential missed diagnoses through counterfactual analysis
+
+### Medical Education
+- Demonstrates causal reasoning in medical diagnosis
+- Visualizes relationships between symptoms and conditions
+- Provides comprehensive case analysis for learning
+
+### Documentation & Compliance
+- Generates detailed medical reports
+- Maintains audit trail of diagnostic reasoning
+- Supports evidence-based medicine practices
+
+## Safety & Ethics
+
+This system is designed as a **decision support tool** for healthcare professionals:
+- Not intended to replace clinical judgment
+- Requires medical expertise for interpretation
+- Emphasizes transparency in causal reasoning
+- Maintains patient privacy and data security
 
 ## Repository
 
 <div class="d-flex justify-content-center">
-    <a href="https://github.com/jnk-codes/options-trading-platform" class="btn btn-primary btn-sm" target="_blank">
-        <i class="fa-brands fa-github"></i> View Code
+    <a href="https://github.com/JNK234/Second-OpinAIon" class="btn btn-primary btn-sm" target="_blank">
+        <i class="fa-brands fa-github"></i> View on GitHub
     </a>
-    <span class="badge badge-warning ml-2">In Development</span>
 </div>
-
-## Performance Metrics
-
-### Backtesting Results (2020-2024)
-- **Sharpe Ratio**: 2.3
-- **Max Drawdown**: 12%
-- **Win Rate**: 68%
-- **Average Return**: 35% annually
-
-### Model Performance
-- **Direction Accuracy**: 72% for next-day moves
-- **Volatility Prediction**: RMSE < 0.15
-- **Sentiment Correlation**: 0.65 with price movements
-
-## Risk Considerations
-
-This platform implements multiple layers of risk management:
-- Position limits and diversification rules
-- Real-time monitoring and circuit breakers
-- Continuous model validation and retraining
-- Compliance with regulatory requirements
-
-## Current Development
-
-### In Progress
-- Integration of options flow data (unusual activity detection)
-- Implementation of reinforcement learning for strategy optimization
-- Enhanced multi-leg strategies (spreads, condors, straddles)
-- Real-time performance dashboard
-
-### Future Enhancements
-- Crypto options trading capabilities
-- Multi-asset portfolio management
-- AI-driven strategy discovery
-- Institutional-grade reporting features
-
-## Disclaimer
-
-This project is for educational and research purposes. All trading involves risk, and past performance does not guarantee future results.
