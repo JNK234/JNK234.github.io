@@ -352,19 +352,19 @@ ninja.data = [{
             },},{id: "news-excited-to-join-relativity-as-an-applied-science-intern-for-summer-2025-looking-forward-to-working-on-cutting-edge-ml-applications-in-the-legal-tech-space",
           title: '🚀 Excited to join Relativity as an Applied Science Intern for Summer 2025!...',
           description: "",
-          section: "News",},{id: "projects-advocate-ai-marketing-platform",
-          title: 'AdVocate - AI Marketing Platform',
-          description: "End-to-end AI marketing platform that revolutionizes campaign creation",
+          section: "News",},{id: "projects-advocate-ai-powered-ad-generator",
+          title: 'AdVocate - AI-Powered Ad Generator',
+          description: "Automated marketing research and ad generation using Claude AI, LangGraph, and Stable Diffusion",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
-            },},{id: "projects-options-trading-intelligence-platform",
-          title: 'Options Trading Intelligence Platform',
-          description: "Real-time options trading bot with sentiment-driven market insights",
+            },},{id: "projects-second-opinaion-medical-diagnosis-system",
+          title: 'Second OpinAIon - Medical Diagnosis System',
+          description: "Medical diagnosis assistant using causal inference and LLMs for comprehensive analysis",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project/";
-            },},{id: "projects-e-yantra-robotics-competition",
-          title: 'E-yantra Robotics Competition',
-          description: "National robotics competition - Automated warehouse system with ROS",
+            },},{id: "projects-lear-llm-driven-evolution-of-agent-based-rules",
+          title: 'LEAR - LLM-Driven Evolution of Agent-Based Rules',
+          description: "Using LLMs to evolve agent behaviors in multi-agent systems through automated code generation",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_project/";
             },},{id: "projects-neuraforge-newsletter",
@@ -372,6 +372,21 @@ ninja.data = [{
           description: "Technical newsletter on Generative AI and Machine Learning trends",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project/";
+            },},{id: "projects-agentic-blogging-assistant",
+          title: 'Agentic Blogging Assistant',
+          description: "AI-powered tool for streamlined blog creation with multi-LLM support and SEO optimization",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/5_project/";
+            },},{id: "projects-faceswap-diffusion-model",
+          title: 'FaceSwap Diffusion Model',
+          description: "DeepFake face swap using diffusion models for realistic identity transformation",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/6_project/";
+            },},{id: "projects-netlogo-llm-extension",
+          title: 'NetLogo LLM Extension',
+          description: "Extending NetLogo with Large Language Model capabilities for intelligent agent-based modeling",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/7_project/";
             },},{
         id: 'social-email',
         title: 'email',
