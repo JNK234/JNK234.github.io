@@ -3,13 +3,12 @@ layout: post
 title: "My Three Months at Relativity: Building AI for Legal Tech"
 date: 2025-09-07 12:57:37+05:30
 description: "Experiences, Learnings and Reflections"
-tags: [internships]
+tags: [internships, applied science]
 categories: [career]
 giscus_comments: false
 related_posts: false
 featured: true
 ---
-
 I spent the last three months as an Applied Science Intern at Relativity, working on how AI gets deployed in the legal tech domain. The experience taught me something I hadn't expected: in high-stakes fields, the technology is often the easy part.
 
 **[Relativity](https://www.relativity.com/)** leads the e-discovery platform space, helping lawyers and legal teams turn e-discovery into easy discovery. From early-stage case preparation to production, they enable teams to move seamlessly through each phase of legal matters in one platform.
@@ -35,13 +34,13 @@ This journey taught me how to build new products in domains where stakes are hig
 
 Deep learning models are universal approximators, theoretically capable of solving any problem given sufficient constraints like data, compute, and scale. I'm seeing this become reality through frontier models like GPT-5 and Gemini, which can solve complex problems through proper prompt engineering or orchestrating multiple LLM calls.
 
-The transformation in how we approach problems is striking. Since models are powerful enough, I could achieve desired results through accurate prompt engineering, efficient RAG mechanisms, or partial fine-tuning (rarely - if required). Models are becoming cheaper and more powerful—the cost per million tokens continues dropping significantly.
+The transformation in how we approach problems is striking. Since models are powerful enough, I could achieve desired results through accurate prompt engineering, efficient RAG mechanisms, or partial fine-tuning (rarely - if required). Models are becoming cheaper and more powerful—the cost per million tokens continues dropping significantly. This means we can build and deliver value lot more for less costs.
 
 ![Cost per million tokens is reducing over the years]({{ '/assets/img/model-costs.png' }})
 
 As Andrej Karpathy put it, "English is the hottest programming language." These models represent a new abstraction for solution creation, different from past approaches using mathematical models with parameters to model data and problems.
 
-The main challenges remain: Can I trust this solution? How do I measure it? How can I understand what it's doing under the hood? Interpretability remains fascinating and crucial.
+The main challenges remain: Can I trust this model? How do I measure its success ? How can I understand what it's doing under the hood? Interpretability remains fascinating and crucial.
 
 ### Problems Aren't Just Technical
 
@@ -67,8 +66,8 @@ I created benchmarking datasets by analyzing available documents, sampling repre
 
 ## My Thoughts
 
-Through this experience, several things became clear. 
-AI is becoming increasingly capable of tackling complex problems when properly enabled. The technology exists; it's about thoughtful application.  Domain-specific problems in legal, healthcare, finance, and aerospace can be addressed through dedicated testing and specialized environments. Each domain has peculiarities, but they're manageable with the right approach.
+Through this experience, several things became clear.
+Large Language Models are becoming increasingly capable of tackling complex problems when properly enabled. The technology exists; it's about thoughtful application.  Domain-specific problems in legal, healthcare, finance, and aerospace can be addressed through dedicated testing and specialized environments. Each domain has peculiarities, but they're manageable with the right approach.
 
 There's value in developing projects that solve problems in niche domains using powerful models—especially where AI implementation once seemed impossible.
 Applied Science is an exciting field that deserves exploration in both breadth and depth. This means rapidly trying new approaches while also creating value in domains where AI might have been considered unfeasible.
