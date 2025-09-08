@@ -22,7 +22,8 @@ I worked in their Applied Science Team, whose role is to develop AI solutions po
 
 I joined the **[aiR for Review](https://www.relativity.com/data-solutions/air/review/)** team, which builds document review tools. The product helps firms process hundreds of thousands of documents to identify what matters—like the difference between reading every page in a library versus knowing exactly which three books contain what you need.
 
-My work focused on developing AI-powered document analysis capabilities. The legal teams faced a common challenge: processing massive document volumes without knowing their contents upfront. Was there something critical? Something relevant? Traditional approaches required exhaustive manual review. (Like Mike Ross reading through thousands of documents overnight to find that one critical piece, or identifying red flags that might disrupt a case. )
+The legal teams faced a common challenge: processing massive document volumes without knowing their contents upfront. Was there something critical? Something relevant? Traditional approaches required exhaustive manual review. (Like Mike Ross reading through thousands of documents overnight to find that one critical piece, or identifying red flags that might disrupt a case.)
+I worked primarily on solving this problem.
 
 ## A Different Kind of Problem Statement
 
