@@ -277,3 +277,25 @@ body {
   padding-left: 6rem; /* Restore original padding */
   padding-right: 6rem; /* Restore original padding */
 }
+/* ===========================================
+   LIGHT MODE CONTRAST
+   The gold accents are tuned for the dark background; on the light
+   background they are darkened so links, nav and icons stay readable.
+   =========================================== */
+html:not(.dark) {
+  --color-primary-300: 122, 90, 56;         /* #7a5a38 */
+  --color-primary-400: 122, 90, 56;         /* #7a5a38 - nav, icons */
+  --color-primary-500: 110, 79, 48;         /* #6e4f30 */
+  --color-primary-600: 95, 68, 40;          /* #5f4428 - links */
+  --color-primary-700: 80, 57, 33;          /* #503921 */
+}
+
+/* Code blocks keep their dark background in both modes, so restore the original accents inside them */
+html:not(.dark) pre,
+html:not(.dark) .highlight {
+  --color-primary-300: 247, 219, 179;
+  --color-primary-400: 239, 194, 133;
+  --color-primary-500: 212, 165, 116;
+  --color-primary-600: 180, 137, 91;
+  --color-primary-700: 146, 108, 69;
+}
