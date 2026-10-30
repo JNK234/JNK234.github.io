@@ -9,9 +9,10 @@
   [en.params.author]
     name = "Narasimha Karthik J"
     image = "img/profile.jpg"
-    headline = "Research Engineer, AI Systems"
-    bio = "I build AI systems that work in the real world."
+    headline = "AI / Research Engineer — Evals, Post-Training, RL Environments"
+    bio = "I build and evaluate AI systems: RL environments, post-training, LLM-as-judge."
     links = [
+      { email = "mailto:narasimhajwalapuram2026@u.northwestern.edu" },
       { linkedin = "https://www.linkedin.com/in/narasimhakarthik" },
       { github = "https://github.com/JNK234" },
       { scholar = "https://scholar.google.com/citations?user=l5NzskUAAAAJ" },
