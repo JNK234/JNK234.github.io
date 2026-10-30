@@ -3,6 +3,7 @@ title: "Medhastra AI - Medical Education Platform"
 description: "AI-powered medical education platform using simulations and multi-agent workflows"
 summary: "Co-founded medical education startup using AI-powered simulations for medical students and physicians."
 date: 2025-03-22
+weight: 13
 tags: ["Healthcare AI", "Startup", "AI Agents", "Medical Education"]
 showTableOfContents: true
 ---

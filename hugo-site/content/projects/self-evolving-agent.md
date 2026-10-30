@@ -3,6 +3,7 @@ title: "Self-Evolving Agent"
 description: "LLM-based self-improving agent system with automatic prompt evolution and dynamic tool creation"
 summary: "AI agents that automatically improve through prompt evolution and dynamic tool creation."
 date: 2025-11-04
+weight: 16
 tags: ["AI Agents", "LLM", "Research", "AutoML"]
 externalUrl: "https://github.com/JNK234/Self-evolving-agent"
 showTableOfContents: true

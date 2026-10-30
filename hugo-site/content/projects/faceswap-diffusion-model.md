@@ -3,6 +3,7 @@ title: "FaceSwap Diffusion Model"
 description: "DeepFake face swap using diffusion models for realistic identity transformation"
 summary: "Face swap model using diffusion models for realistic identity transformation with high fidelity."
 date: 2025-03-20
+weight: 25
 tags: ["Computer Vision", "Diffusion Models", "Deep Learning"]
 externalUrl: "https://github.com/JNK234/FaceSwap-Diffusion-Model"
 showTableOfContents: true

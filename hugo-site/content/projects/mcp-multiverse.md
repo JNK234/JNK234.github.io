@@ -3,6 +3,7 @@ title: "mcp-multiverse"
 description: "Universal MCP server sync manager for Claude Code, Gemini CLI, Cline, and Roo Code"
 summary: "Universal MCP server synchronization tool with no external dependencies - pure Python standard library."
 date: 2025-12-18
+weight: 20
 tags: ["Developer Tools", "Python", "Infrastructure"]
 externalUrl: "https://github.com/JNK234/mcp-multiverse"
 showTableOfContents: true

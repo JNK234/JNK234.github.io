@@ -16,7 +16,7 @@ Open to AI Engineer and Research Engineer roles. Chicago, open to relocation. [n
 
 ## Experience
 
-### WhoBlinked — Co-Founder & CTO
+### [WhoBlinked](https://whoblinked.com) — Co-Founder & CTO
 *Remote · July 2026 – Present*
 - Multi-tenant competitor-intelligence SaaS, from data model and API contracts to the React product.
 - Extraction pipeline that falls back from store APIs to structured markup to headless browsing, with block detection so failed scans never show as false changes.

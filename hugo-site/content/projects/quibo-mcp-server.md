@@ -3,6 +3,7 @@ title: "Quibo - MCP Server for Agentic Blogging"
 description: "Model Context Protocol server integrating AI-powered content transformation with Claude Code and other AI development environments"
 summary: "MCP server that enables AI-powered blogging capabilities directly within development environments through standardized protocol integration."
 date: 2025-12-20
+weight: 17
 tags: ["Developer Tools", "MCP", "AI Agents", "Content Generation", "Python"]
 showTableOfContents: true
 ---

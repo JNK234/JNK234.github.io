@@ -3,6 +3,7 @@ title: "Reinforcement Learning Algorithms"
 description: "Comprehensive implementation of major RL algorithms for research and education"
 summary: "Complete implementations of all major reinforcement learning algorithms from foundations to state-of-the-art."
 date: 2025-09-21
+weight: 21
 tags: ["Reinforcement Learning", "Education", "Deep Learning", "PyTorch"]
 externalUrl: "https://github.com/JNK234/Reinforcement-Learning-Algorithms"
 showTableOfContents: true

@@ -3,6 +3,7 @@ title: "QD-LEAR - Quality-Diversity in LLM-Evolved Agents"
 description: "Research exploring quality-diversity tradeoffs in LLM-evolved agent behaviors"
 summary: "Extension of LEAR research exploring quality-diversity tradeoffs in agent evolution."
 date: 2025-05-01
+weight: 8
 tags: ["Research", "AI Agents", "Evolutionary Algorithms", "Quality-Diversity"]
 showTableOfContents: true
 ---

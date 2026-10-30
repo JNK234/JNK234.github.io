@@ -3,6 +3,7 @@ title: "Technical Publications Automation"
 description: "Generative AI solution for automating aircraft maintenance manual updates"
 summary: "Custom PDF parser with fine-tuned LLMs for aerospace technical documentation, achieving 80% effort reduction and securing $200k funding."
 date: 2022-07-01
+weight: 6
 tags: ["Production AI", "Aerospace", "LLM Fine-tuning", "RAG", "Enterprise"]
 company: "Boeing Company"
 position: "Data Scientist"

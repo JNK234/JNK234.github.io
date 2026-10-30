@@ -3,6 +3,7 @@ title: "AdVocate - AI-Powered Ad Generator"
 description: "Automated marketing research and ad generation using Claude AI, LangGraph, and Stable Diffusion"
 summary: "AI-powered platform that automates marketing research and ad creation using Claude AI, LangGraph, and Stable Diffusion."
 date: 2025-03-12
+weight: 23
 tags: ["Generative AI", "Marketing", "LangGraph", "Full-Stack"]
 externalUrl: "https://github.com/JNK234/AdVocate-Agentic-Ad-Generator"
 showTableOfContents: true

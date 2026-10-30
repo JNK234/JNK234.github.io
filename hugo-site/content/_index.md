@@ -21,7 +21,7 @@ Hi, I'm Karthik. I build and evaluate AI systems: RL environments and graders fo
 
 ## Experience
 
-**WhoBlinked** — Co-Founder & CTO (2026–present). Competitor-intelligence SaaS; LLM features checked against live search before users see them.
+**[WhoBlinked](https://whoblinked.com)** — Co-Founder & CTO (2026–present). Competitor-intelligence SaaS; LLM features checked against live search before users see them.
 
 **CCL Lab, Northwestern** — Research Engineer (2024–present). Built NetLogo's official multi-provider [LLM extension](/projects/netlogo-llm-extension/) and the code generator behind LEAR.
 

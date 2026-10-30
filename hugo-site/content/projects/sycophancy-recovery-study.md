@@ -3,6 +3,7 @@ title: "Sycophancy Recovery Study"
 description: "Five alignment methods against induced sycophancy in Qwen3-8B, judged behaviorally and probed mechanistically"
 summary: "Induced sycophancy in Qwen3-8B, then compared DPO, SimPO, IPO, GRPO and Constitutional AI. DPO fooled the judge while a probe still found the disposition; CAI preference pairs did best."
 date: 2026-05-28
+weight: 2
 tags: ["Post-Training", "Alignment", "Interpretability", "DPO", "GRPO", "Evals"]
 showTableOfContents: true
 ---

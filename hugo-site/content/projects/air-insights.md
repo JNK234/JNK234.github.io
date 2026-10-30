@@ -3,6 +3,7 @@ title: "aiR Insights - Legal Document Intelligence"
 description: "AI-powered legal document intelligence system with LLM-as-a-Judge validation framework"
 summary: "Production legal document processing system using LLM-as-a-Judge framework, achieving 87.5% accuracy with 60% time reduction."
 date: 2025-06-01
+weight: 5
 tags: ["Production AI", "LegalTech", "LLM", "Enterprise"]
 company: "Relativity"
 position: "Applied Science Intern"

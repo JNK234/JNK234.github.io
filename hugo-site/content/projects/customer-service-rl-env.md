@@ -3,6 +3,7 @@ title: "Customer-Service Agent RL Environment"
 description: "RL environment for a tool-using support agent, with a state-gated reward and an LLM judge"
 summary: "LLM customer with a hidden goal, 13-tool agent, reward gated on the database diff before a judge checks consent and honesty. Red-teaming caught a forged-consent hole in the judge."
 date: 2026-10-05
+weight: 1
 tags: ["RL Environments", "Agents", "Evals", "LLM-as-Judge", "Python"]
 showTableOfContents: true
 ---
