@@ -1,0 +1,13 @@
+{{/* ABOUTME: Subscribe card shown on blog posts and the blog index. */}}
+{{/* ABOUTME: Offers email signup via the NeuraForge Substack and the blog's RSS feed. */}}
+{{ $feed := "posts/index.xml" | absURL }}
+<div class="subscribe-card print:hidden">
+  <p class="subscribe-title">Get new posts when they're published</p>
+  <p class="subscribe-sub">Post-training, evals and agent experiments, about once or twice a month.</p>
+  <div class="subscribe-actions">
+    <a class="subscribe-button" href="https://neuraforge.substack.com/subscribe" target="_blank" rel="noopener"
+      >Subscribe by email</a
+    >
+    <a class="subscribe-rss" href="{{ $feed }}">RSS feed</a>
+  </div>
+</div>

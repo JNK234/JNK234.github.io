@@ -25,6 +25,10 @@
     </div>
   </section>
 
+  <div class="max-w-prose">
+    {{ partial "subscribe.html" . }}
+  </div>
+
   {{/* All Posts - Unified List (Internal + External) */}}
   {{ if .Data.Pages }}
     <section>

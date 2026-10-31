@@ -39,4 +39,4 @@ Technical posts here and at [NeuraForge](https://neuraforge.substack.com) — po
 
 ---
 
-[Email](mailto:narasimhajwalapuram2026@u.northwestern.edu) • [LinkedIn](https://linkedin.com/in/narasimhakarthik) • [GitHub](https://github.com/JNK234) • [Google Scholar](https://scholar.google.com/citations?user=l5NzskUAAAAJ) • [CV](/cv/)
+[Email](mailto:narasimhajwalapuram2026@u.northwestern.edu) • [LinkedIn](https://linkedin.com/in/narasimhakarthik) • [GitHub](https://github.com/JNK234) • [Google Scholar](https://scholar.google.com/citations?user=l5NzskUAAAAJ) • [CV](/cv/) • [RSS](/posts/index.xml)
