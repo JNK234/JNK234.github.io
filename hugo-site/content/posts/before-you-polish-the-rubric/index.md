@@ -1,128 +1,116 @@
 ---
-title: "Before You Polish the Rubric"
+title: "Before You Polish the Rubric: Give the Judge an Answer the Candidate Did Not Write"
 slug: "before-you-polish-the-rubric"
 date: 2026-11-14
-description: "When an LLM judge gives scores you don't trust, the reflex is to rework the rubric. In the studies I read, three other things moved judges more: who judges, what the judge is given to check against, and the order it works in."
-summary: "Swapping the judge raised agreement with humans by 0.26; adding per-skill rubrics raised it by 0.04 to 0.08. Taking the reference answer away cost five times what taking the rubric away cost. And one judge accepted 72% of wrong answers when told to verify, and 1% when made to write its own answer first."
+description: "My reading of nine published papers on LLM judges. A judge that reads the candidate answer first checks how it looks; to check whether it is right, it needs an answer that did not come from the candidate."
+summary: "A reading of nine papers, not my own experiments. The point I take from them: an LLM judge needs an independent answer, a reference or its own written first, before it scores the candidate. In one study the same judge accepted 71.9% of wrong answers when it reasoned with the candidate in view and 1.2% when it wrote its own answer first."
 tags: ["LLM-as-a-Judge", "Evaluation", "Rubrics", "Reward Design", "LLMs"]
 categories: ["technical"]
 showTableOfContents: true
 ---
 
-When an LLM judge gives scores you don't trust, the first thing most of us do is rework the rubric. Add levels. Split it into dimensions. Mark some criteria as more important than others.
+*Notes on nine published papers about LLM judges. These are not my experiments. This is my reading of other people's results. Anything not marked as my interpretation is a result reported in the paper cited.*
 
-One study put a number on how much that kind of change helps. [FLASK](https://arxiv.org/abs/2307.10928) scored model answers with a judge and compared the judge's scores with human scores. Replacing one overall score with a separate levelled rubric for each skill raised the judge's correlation with humans by 0.04 to 0.08, depending on the judge. Swapping the judge from GPT-3.5 to GPT-4, with the rubric held fixed, raised it by 0.26.
+When an LLM judge gives scores you don't trust, the usual fix is to rework the rubric: add levels, split it into dimensions, weight the criteria.
 
-My claim in this post: the form of a rubric, meaning its levels, weights and scoring arithmetic, is the smallest lever you have on a judge. Three things moved judges more in the studies I read: who does the judging, what the judge is given to check against, and the order the judge is made to work in. What the rubric says still matters, and I come back to that.
+**My interpretation.** A judge that reads the candidate answer first ends up checking how the answer looks. To check whether it is right, the judge needs an answer that did not come from the candidate: a reference answer, or its own answer written before it scores. In these papers, that one change moved judges more than levels, labels or weights did.
 
-Think of marking an exam. You can restructure the mark scheme. Or you can change the marker, hand the marker the answer key, or make the marker write their own answer before looking at the student's.
+In one study the same judge accepted 71.9% of wrong answers when it reasoned with the candidate in view, and 1.2% when it wrote its own answer first.
 
-I ran none of these experiments. This is a reading across nine sources, and no single source compares all four levers. Some of the evidence is about judges used for evaluation and some about judges used as a training reward. I say which each time.
+![Diagram of two judging procedures. Candidate first: the judge reads the candidate, reasons with it in view, and accepts 71.9% of wrong answers. Own answer first: the judge writes its own answer, compares, accepts only on a match, and accepts 1.2%.](fig2_candidate_first_vs_own_answer.png)
 
-## Who is marking?
+*The same judge model graded the same wrong answers under two procedures. From Zhou (2026).*
 
-The FLASK comparison, as Spearman correlation with human scores (rank correlation; 1.0 means the same ordering) on 200 instances:
+## A judge follows the answer it is shown
 
-| Judge | One overall score | Per-skill rubrics |
-|---|---|---|
-| GPT-3.5 | 0.360 | 0.424 |
-| Claude | 0.352 | 0.432 |
-| GPT-4 | 0.641 | 0.680 |
+[MT-Bench](https://arxiv.org/abs/2306.05685) reported that GPT-4, used as a judge, failed to grade basic math problems that it could solve when asked directly. Shown a wrong answer, it was misled by it. In 20 judgments it passed the wrong answer 14 times. Asked to reason step by step first, it passed it 6 times. Given its own answer to compare against, written in a separate call, it passed it 3 times.
 
-The rubric helps every judge. It does not come close to closing the gap between them. If anything the table flatters the rubric: the one-score baseline copies its single score to every skill, which handicaps it.
+A [2026 paper by Zhou](https://arxiv.org/abs/2607.05904) tested the same idea against a model trained to win the judge's approval. The model was trained on grade-school math with its reasoning restricted, so most of its answers were wrong. After training, its wrong answers were more convincing, not fewer. The judge then graded the wrong answers from a 128-question audit set in two ways:
 
-One reading of why the marker matters this much is that a judge cannot grade what it cannot do. In the same study, a weaker judge gave higher scores for logic and made a weak model look close to strong ones, against the human labels.
+- Told to solve the problem itself before scoring, but with the candidate in view while it reasoned, it accepted 71.9%.
+- Made to write "My answer:" before any comparison, with the candidate still on the page, and to accept only if the two matched, it accepted 1.2%.
 
-A weak judge is also easier to fool with length. [MT-Bench](https://arxiv.org/abs/2306.05685) took 23 answers containing a list, rephrased the list, and pasted the rephrased copy in front of the original. Same content, twice the length. Two weaker judges preferred the padded version 91.3% of the time. GPT-4 did 8.7% of the time.
+Asked directly, the same judge solved these problems about 93% of the time. It had the ability. It did not use it while a convincing answer was in front of it.
 
-The same thing shows up when the judge is a training reward. A [study of rubric-based RL](https://arxiv.org/abs/2605.12474) trained the same model against two judges and checked both against a panel of three stronger models. On medical prompts with the weak judge, the share of new rubric credit that all three panel models judged undeserved rose from 39% to 65% over training. With the strong judge it stayed between 15% and 21%. One run each.
+A bigger judge did not fix this. A judge 3.5 times the size of the trained model still accepted 77% of its wrong answers, and a panel that required three judge families to agree still accepted 55%.
 
-Two corrections to "use the strongest model". In [HealthBench](https://cdn.openai.com/pdf/bd7a39d5-9e9f-47b3-903c-8b847ca650c7/healthbench_paper.pdf), the model that answered best was not the best grader: on agreement with physicians (macro-F1), GPT-4.1 scored 0.709 and o3 scored 0.681. The grader prompt had been tuned on GPT-4.1, so hold that loosely. Either way, measure judge quality on your own task. And size alone did not hold up under pressure, which is the third section.
+The paper states three limits. The result is from a 128-question audit set in grade-school math. The method needs an answer that can be matched exactly. And it hurts a judge that cannot solve the task: on a code benchmark, writing its own solution first made a 1.7B judge worse and an 8B judge better.
 
-## Does the marker have the answer key?
+The paper also gives a check you can run. A judge that really writes its own answer first can pass a wrong answer only when it makes the same mistake, so its false-pass rate (the share of wrong answers it passes) cannot be higher than its own error rate. If it is, the shown answer is leaking into its reasoning.
 
-FLASK also removed the parts of the judge's prompt one at a time. With everything in, correlation with humans was 0.680. Without the rubric it was 0.646. Without the reference answer it was 0.516. Losing the answer key cost about five times what losing the mark scheme cost.
+## A reference answer is the same move
 
-[Rubrics as Rewards](https://arxiv.org/abs/2507.17746) shows the same thing on the training side, and also shows what a rubric is worth. It trained a 7B model with different judges as the reward and scored the result on a medical benchmark (0 to 100):
+[FLASK](https://arxiv.org/abs/2307.10928) gave a GPT-4 judge four things: the instruction, a reference answer, the response, and a rubric, and asked it to explain before scoring. It then removed one part at a time and measured how well the judge's scores tracked human scores on 200 instances, as Spearman correlation (rank agreement; 1.0 is the same ordering). With everything, the correlation was 0.680. Without the rubric, 0.646. Without the reference answer, 0.516.
 
-- Judge gives a plain rating, sees no reference: 23.9
-- Judge gives a plain rating, sees the reference answer: 31.7
-- Judge uses a per-question rubric written without the reference: 32.0
-- Judge uses a per-question rubric written from the reference: 35.9
+![Bar chart: removing the reference answer from a judge's prompt lowered agreement with humans by 0.164, removing the explain-first step by 0.046, removing the rubric by 0.034](fig1_prompt_parts.png)
 
-The reference is worth about 8 points with no rubric. A rubric written for the question is worth about 8 points with no reference. Together they add about 12. These are single runs with no error bars, and the same judge model graded the benchmark, so the sizes are soft. The shape is clear enough: the answer key is at least as big a lever as the rubric, and most rubric work never touches it.
+*What each part of the judge's prompt was worth. From FLASK, Table 1.*
 
-The key does not have to be a gold answer. It can be anything the model being graded did not have. [DR Tulu](https://arxiv.org/abs/2511.19399) gave its rubric writer search results for each question. The share of criteria that made a concrete, checkable claim went from 0.22 to 0.56. The gain downstream was modest, about one point on the paper's benchmark average.
+[Rubrics as Rewards](https://arxiv.org/abs/2507.17746) used judges as a training reward. A 7B model was trained with four kinds of judge and scored on a medical benchmark (0 to 100):
 
-## Does the marker write their own answer first?
+- Plain rating, judge sees no reference: 23.9
+- Plain rating, judge sees the reference answer: 31.7
+- Rubric written for the question, without the reference: 32.0
+- Rubric written for the question, from the reference: 35.9
 
-This is the lever I had not expected, and it has the largest single effect in these sources.
+These are single runs with no error bars, and the same judge model also graded the benchmark, so treat the gaps as rough.
 
-MT-Bench noticed that GPT-4 failed to grade basic math problems that it could solve when asked directly. Shown a wrong answer, it was misled by it. On 20 judgments it passed a wrong answer 14 times. Asking it to reason step by step first cut that to 6. Having it write its own answer in a separate call, then compare, cut it to 3. Reasoning with the wrong answer in view is not checking. The judge follows the same path and arrives at the same answer.
+[DR Tulu](https://arxiv.org/abs/2511.19399) gave its rubric writer search results for each question. The share of criteria that made a concrete, checkable claim rose from 0.22 to 0.56. The downstream gain was about one point on the paper's benchmark average.
 
-A [recent paper](https://arxiv.org/abs/2607.05904) tested this under pressure. A small model was trained to maximise a judge's approval on grade-school math, with its reasoning deliberately restricted so that most of its answers were wrong. After training, its wrong answers were more convincing, not fewer. A judge 3.5 times its size still accepted 77% of them, and requiring three different judges to agree did not help.
+**My interpretation.** I read these as one idea, and the same idea as the section above. A reference answer, retrieved evidence, and the judge's own answer written first all put something on the judge's side that the candidate did not supply. The independent answer does not have to be a gold answer. No paper here states it that way, and none tests the three against each other. I am also assuming that what holds for a judge used in evaluation carries over to a judge used as a training reward; the papers cover both, but separately.
 
-Then the original judge graded the same wrong answers two ways. Told to recompute independently, it accepted 71.9% of them. Made to write "My answer:" before comparing, with the candidate still on the page, it accepted 1.2%. The judge could solve these problems 93% of the time all along. It was not using that ability while a convincing answer sat in front of it.
+## How this compares with reworking the rubric
 
-That gives a test you can run wherever answers can be matched exactly. A judge that really writes its own answer first can pass a wrong answer only when it makes the same mistake, so its false-pass rate cannot exceed its own error rate. If it does, the shown answer is leaking into its reasoning.
+In FLASK, replacing one overall score with a levelled rubric per skill raised agreement with humans by 0.04 to 0.08 across three judges. Swapping the judge from GPT-3.5 to GPT-4 raised it by 0.26 to 0.28.
 
-Three limits. The result is from 128 answers in grade-school math. It needs an answer that can be matched exactly. And it hurts a judge that cannot solve the task: on a code benchmark, writing its own solution first made a 1.7B judge worse and an 8B judge better, though still far from perfect.
+In Rubrics as Rewards, deleting the importance labels from the rubric raised the score (38.8 against 37.2), and deleting every "must not" criterion changed nothing (37.2 both ways). A [review of higher-education studies](https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2018.00022/full) found the same for human students: all 13 studies it counted reported positive effects, whether the rubric's levels described the work (8) or only judged it (5).
 
-There is weaker evidence that order matters on open-ended grading too. In FLASK, removing the step where the judge explains before scoring cost 0.046, more than removing the rubric. [GLIDER](https://arxiv.org/abs/2412.14140) trained a small judge to list the evidence it relied on before giving a score; against the same judge trained without that step, average correlation with humans rose from 0.480 to 0.534. That is a trained behaviour, not a prompt instruction.
+What the rubric says does matter. In Rubrics as Rewards, one generic rubric applied to every question trained a worse model than a plain rating with no rubric, 12.5 against 25.5 (on a different evaluation set from the list above). And in that list, a rubric written for the question was worth about as much as the reference answer.
 
-## What about levels and weights?
+**My interpretation.** Levels, labels and weights are the last thing to work on. What the criteria say, and whether the judge has an independent answer, come first. The rubric-form numbers are single results from one paper, so I hold this loosely.
 
-Here the evidence is thin, and what there is does not favour polishing.
+## What this does not fix
 
-- A [review of rubric studies](https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2018.00022/full) in education found 13 that measured learning or motivation. All 13 reported positive effects: 8 used levels that described the work, 5 used levels worded as judgments such as "average". The author's reading was that the criteria were the shared ingredient; she could not show that level descriptions add nothing, and names publication bias. This is a count of studies, not a pooled effect.
-- In Rubrics as Rewards, letting the judge read the whole rubric and give one rating beat scoring each criterion and adding up the weights, 31.2 against 29.7 on the same benchmark.
-- Deleting the importance labels from the rubric raised the score, 38.8 against 37.2.
-- Deleting every "must not" criterion changed nothing, 37.2 both ways. The authors' explanation, which they did not test, is that these were written from the reference answer and so named mistakes the model did not make.
+For a research report or an essay there is no single answer to write first. The one result here on open-ended grading is weaker: [GLIDER](https://arxiv.org/abs/2412.14140) trained a small judge to list its evidence before scoring, and its average correlation with humans rose from 0.480 to 0.534 against the same judge trained without that step.
 
-The last three are single numbers from one paper with no error bars, and gaps of 1.5 points may be noise. I would not build on any one of them. What they do not show is structure paying for itself.
+And a judge with an independent answer is still marking against a list. A [study of rubric-based RL](https://arxiv.org/abs/2605.12474) trained a model against a strong judge that agreed with a panel of three other models 92% of the time. Shown the rubric, the panel preferred the trained model on 85.8% of prompts. With the rubric hidden, it preferred the untrained model on 78.4%. That is one run.
 
-Two cautions in the other direction. In FLASK, finer rubrics made the judge harder to fool with padding: scores stayed unchanged for 43.8% of padded answers with one overall score and 55.8% with per-question checklists. And in the rubric-RL study, the weights did matter in aggregate, which is the last section.
-
-## Where the rubric earns its place
-
-None of this says the rubric does not matter. What it says matters a great deal.
-
-A generic rubric is worse than none. In Rubrics as Rewards, one four-item rubric applied to every question trained a model to 12.5 on the main benchmark. A plain rating with no rubric got 25.5. In DR Tulu, one rubric shared across all questions bought nothing: 500 steps of training moved the average from 54.7 to 54.8.
-
-A rubric written for the question is worth as much as the answer key, as the list above showed.
-
-A specific rubric helps a small judge most. The same paper used judges of different sizes as the training reward and scored the model each one produced. A 7B judge with a bare rating trained a model to 22.0; the same judge with a per-question rubric trained one to 26.7. For a 32B judge the figures were 25.4 and 26.2, and a 14B judge barely moved. With the rubric, the small judge trained as good a model as the large one.
-
-The wording that seems to help is the unglamorous kind. The rubric writer in that paper was told to say "identifies (B)", never "identifies the right choice", so a judge with no domain knowledge could check it. And in one example from GLIDER, a small judge scored a neutral question as misinformation because the criterion never said what to do with neutral text.
-
-How does this fit with the first section, where rubrics could not close the gap between judges? FLASK's rubrics were written per skill, not per question. My reading, which no source here tests: a rubric helps a judge decide what to look for. It does not help a judge check reasoning it cannot do.
-
-## What none of this fixes
-
-A better marker with the answer key, writing their own answer first, is still marking against a list. In the rubric-RL study, the strong judge was fooled less often than the weak one, but in the same three ways and about the same proportions: credit for part of a compound criterion, credit for something implied but not stated, and loose matching. The grading prompt explicitly forbade the first. That breakdown was produced by a model with no human check.
-
-And the run with the strong judge, which looked healthy on every measure, still went wrong. Shown the rubric, the panel preferred the trained model on 85.8% of prompts. With the rubric hidden, it preferred the untrained model on 78.4%. The judge read the rubric well. The rubric was not the whole of a good answer. The paper's proposed reason is about weights after all: "must include" criteria held 90.2% of the total weight and "must not" criteria 8.6%, so the reward mostly said add things.
+**My interpretation.** The judge read the rubric well, and the rubric was not the whole of a good answer.
 
 ## The order I would work in
 
-Measure candidate judges on your own task and pick the best you can afford. Give the judge something the graded model did not have: a reference answer or retrieved evidence. Where answers can be matched, make the judge write its own first. Write criteria for the question, and say exactly what to check. Leave the levels and the labels for last, but look at what the weights add up to.
+This is my view, not a result.
 
-## What this does not show
+1. Measure candidate judges on your own task and pick the best. In FLASK the judge swap was the largest single effect, and in [HealthBench](https://cdn.openai.com/pdf/bd7a39d5-9e9f-47b3-903c-8b847ca650c7/healthbench_paper.pdf) the model that answered best was not the best grader: on agreement with physicians, o3 scored 0.681 and GPT-4.1 scored 0.709, though the grader prompt had been tuned on GPT-4.1.
+2. Give the judge an answer the candidate did not supply: a reference answer or retrieved evidence.
+3. Where answers can be matched exactly, make the judge write its own answer first.
+4. Write criteria for the question.
+5. Leave levels and weights for last.
 
-The ranking of the levers is my assembly. Only FLASK puts judge, reference and rubric in one table, and that is evaluation, not training. In the training results, the measured effects of form, a stronger judge and better-grounded criteria are all one to two points, so "smallest lever" is not shown there.
+![Five steps in priority order: measure judges on your task; give the judge an answer the candidate did not supply; where answers can be matched, make it write its own first; write criteria for the question; levels and weights last](fig3_order_of_effort.png)
 
-The sources differ in task, model and year. The write-first result is from grade-school math under training pressure; the code result is from picking the best of 16 samples, with no training.
+*Steps 2 and 3 are the point of this post.*
 
-The open question is the case with no answer key at all. Most of what worked here leans on one. What does "write your own answer first" mean when the task is a research report, and the judge's own attempt is just another sample?
+## What is published and what is mine
+
+**Published:** every number in this post. Each was checked against the original paper, except the HealthBench figures, which were checked against the arXiv copy of that paper.
+
+**Mine:** that a reference answer and writing-first are the same move; the order of effort; and the assumption that results on judges used for evaluation carry over to judges used as a training reward.
+
+**Not shown anywhere:** one study that compares all of these. FLASK compares judge, reference and rubric in one table, for evaluation only. In the training results the measured effects run from about one point to about thirteen, each from a single run.
+
+## The open question
+
+What does "write your own answer first" mean when the task is a research report, and the judge's own attempt is just another sample?
 
 ## References
 
-1. Ye, Kim et al., *FLASK: Fine-grained Language Model Evaluation based on Alignment Skill Sets*, ICLR 2024. https://arxiv.org/abs/2307.10928
-2. Zheng et al., *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena*, NeurIPS 2023. https://arxiv.org/abs/2306.05685
-3. Zhou, *More Convincing, Not More Correct: Self-Play Reward Hacking of Reference-Free LLM Judges*. https://arxiv.org/abs/2607.05904
-4. Deshpande et al., *GLIDER: Grading LLM Interactions and Decisions using Explainable Ranking*, 2024. https://arxiv.org/abs/2412.14140
-5. Gunjal et al., *Rubrics as Rewards: Reinforcement Learning Beyond Verifiable Domains*, 2025. https://arxiv.org/abs/2507.17746
-6. Shao, Asai, Shen, Ivison et al., *DR Tulu: Reinforcement Learning with Evolving Rubrics for Deep Research*, ICML 2026. https://arxiv.org/abs/2511.19399
-7. Mahmoud, Rezaei, Wang, Gunjal, Liu, He, *Reward Hacking in Rubric-Based Reinforcement Learning*, 2026. https://arxiv.org/abs/2605.12474
-8. Arora, Wei et al., *HealthBench: Evaluating Large Language Models Towards Improved Human Health*, OpenAI, 2025. https://cdn.openai.com/pdf/bd7a39d5-9e9f-47b3-903c-8b847ca650c7/healthbench_paper.pdf
-9. Brookhart, *Appropriate Criteria: Key to Effective Rubrics*, Frontiers in Education, 2018. https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2018.00022/full
+1. Zheng et al., *Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena*, NeurIPS 2023. https://arxiv.org/abs/2306.05685
+2. Zhou, *More Convincing, Not More Correct: Self-Play Reward Hacking of Reference-Free LLM Judges*, 2026. https://arxiv.org/abs/2607.05904
+3. Ye, Kim et al., *FLASK: Fine-grained Language Model Evaluation based on Alignment Skill Sets*, ICLR 2024. https://arxiv.org/abs/2307.10928
+4. Gunjal et al., *Rubrics as Rewards: Reinforcement Learning Beyond Verifiable Domains*, 2025. https://arxiv.org/abs/2507.17746
+5. Shao, Asai, Shen, Ivison et al., *DR Tulu: Reinforcement Learning with Evolving Rubrics for Deep Research*, ICML 2026. https://arxiv.org/abs/2511.19399
+6. Brookhart, *Appropriate Criteria: Key to Effective Rubrics*, Frontiers in Education, 2018. https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2018.00022/full
+7. Deshpande et al., *GLIDER: Grading LLM Interactions and Decisions using Explainable Ranking*, 2024. https://arxiv.org/abs/2412.14140
+8. Mahmoud, Rezaei, Wang, Gunjal, Liu, He, *Reward Hacking in Rubric-Based Reinforcement Learning*, 2026. https://arxiv.org/abs/2605.12474
+9. Arora, Wei et al., *HealthBench: Evaluating Large Language Models Towards Improved Human Health*, OpenAI, 2025. https://cdn.openai.com/pdf/bd7a39d5-9e9f-47b3-903c-8b847ca650c7/healthbench_paper.pdf
