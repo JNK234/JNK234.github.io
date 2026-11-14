@@ -9,8 +9,6 @@ categories: ["technical"]
 showTableOfContents: true
 ---
 
-*Notes on nine published papers about LLM judges. These are not my experiments. This is my reading of other people's results. Anything not marked as my interpretation is a result reported in the paper cited.*
-
 When an LLM judge gives scores you don't trust, the usual fix is to rework the rubric: add levels, split it into dimensions, weight the criteria.
 
 **My interpretation.** A judge that reads the candidate answer first ends up checking how the answer looks. To check whether it is right, the judge needs an answer that did not come from the candidate: a reference answer, or its own answer written before it scores. In these papers, that one change moved judges more than levels, labels or weights did.
