@@ -9,6 +9,8 @@ categories: ["technical"]
 showTableOfContents: true
 ---
 
+*Cover photo by [Tingey Injury Law Firm](https://unsplash.com/@tingeyinjurylawfirm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/woman-holding-sword-statue-during-daytime-DZpc4UY8ZtY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).*
+
 When an LLM judge gives scores you don't trust, the usual fix is to rework the rubric: add levels, split it into dimensions, weight the criteria.
 
 A judge that reads the candidate answer first ends up checking how the answer looks. To check whether it is right, the judge needs an answer that did not come from the candidate: a reference answer, or its own answer written before it scores. That one change moves a judge more than reworking levels, labels or weights.
