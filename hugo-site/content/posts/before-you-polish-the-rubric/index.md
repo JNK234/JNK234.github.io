@@ -2,8 +2,8 @@
 title: "Before You Polish the Rubric: Give the Judge an Answer the Candidate Did Not Write"
 slug: "before-you-polish-the-rubric"
 date: 2026-11-14
-description: "My reading of nine published papers on LLM judges. A judge that reads the candidate answer first checks how it looks; to check whether it is right, it needs an answer that did not come from the candidate."
-summary: "A reading of nine papers, not my own experiments. The point I take from them: an LLM judge needs an independent answer, a reference or its own written first, before it scores the candidate. In one study the same judge accepted 71.9% of wrong answers when it reasoned with the candidate in view and 1.2% when it wrote its own answer first."
+description: "An LLM judge that reads the candidate answer first checks how it looks. To check whether it is right, it needs an answer that did not come from the candidate."
+summary: "An LLM judge that reads the candidate answer first ends up checking how the answer looks. Give it an independent answer, a reference or its own written first, before it scores. In one study (Zhou, 2026) the same judge accepted 71.9% of wrong answers with the candidate in view and 1.2% when it wrote its own answer first."
 tags: ["LLM-as-a-Judge", "Evaluation", "Rubrics", "Reward Design", "LLMs"]
 categories: ["technical"]
 showTableOfContents: true
@@ -11,9 +11,9 @@ showTableOfContents: true
 
 When an LLM judge gives scores you don't trust, the usual fix is to rework the rubric: add levels, split it into dimensions, weight the criteria.
 
-**My interpretation.** A judge that reads the candidate answer first ends up checking how the answer looks. To check whether it is right, the judge needs an answer that did not come from the candidate: a reference answer, or its own answer written before it scores. In these papers, that one change moved judges more than levels, labels or weights did.
+A judge that reads the candidate answer first ends up checking how the answer looks. To check whether it is right, the judge needs an answer that did not come from the candidate: a reference answer, or its own answer written before it scores. That one change moves a judge more than reworking levels, labels or weights.
 
-In one study the same judge accepted 71.9% of wrong answers when it reasoned with the candidate in view, and 1.2% when it wrote its own answer first.
+In one study ([Zhou, 2026](https://arxiv.org/abs/2607.05904)) the same judge accepted 71.9% of wrong answers when it reasoned with the candidate in view, and 1.2% when it wrote its own answer first.
 
 ![Diagram of two judging procedures. Candidate first: the judge reads the candidate, reasons with it in view, and accepts 71.9% of wrong answers. Own answer first: the judge writes its own answer, compares, accepts only on a match, and accepts 1.2%.](fig2_candidate_first_vs_own_answer.png)
 
@@ -55,7 +55,7 @@ These are single runs with no error bars, and the same judge model also graded t
 
 [DR Tulu](https://arxiv.org/abs/2511.19399) gave its rubric writer search results for each question. The share of criteria that made a concrete, checkable claim rose from 0.22 to 0.56. The downstream gain was about one point on the paper's benchmark average.
 
-**My interpretation.** I read these as one idea, and the same idea as the section above. A reference answer, retrieved evidence, and the judge's own answer written first all put something on the judge's side that the candidate did not supply. The independent answer does not have to be a gold answer. No paper here states it that way, and none tests the three against each other. I am also assuming that what holds for a judge used in evaluation carries over to a judge used as a training reward; the papers cover both, but separately.
+These are one idea, and the same idea as the section above. A reference answer, retrieved evidence, and the judge's own answer written first all put something on the judge's side that the candidate did not supply. The independent answer does not have to be a gold answer. The three have not been tested against each other, and the results for judges used in evaluation and judges used as a training reward come from separate studies.
 
 ## How this compares with reworking the rubric
 
@@ -65,7 +65,7 @@ In Rubrics as Rewards, deleting the importance labels from the rubric raised the
 
 What the rubric says does matter. In Rubrics as Rewards, one generic rubric applied to every question trained a worse model than a plain rating with no rubric, 12.5 against 25.5 (on a different evaluation set from the list above). And in that list, a rubric written for the question was worth about as much as the reference answer.
 
-**My interpretation.** Levels, labels and weights are the last thing to work on. What the criteria say, and whether the judge has an independent answer, come first. The rubric-form numbers are single results from one paper, so I hold this loosely.
+So levels, labels and weights are the last thing to work on. What the criteria say, and whether the judge has an independent answer, come first. The numbers on rubric form are single results from one study, so this part is the least settled.
 
 ## What this does not fix
 
@@ -73,11 +73,9 @@ For a research report or an essay there is no single answer to write first. The 
 
 And a judge with an independent answer is still marking against a list. A [study of rubric-based RL](https://arxiv.org/abs/2605.12474) trained a model against a strong judge that agreed with a panel of three other models 92% of the time. Shown the rubric, the panel preferred the trained model on 85.8% of prompts. With the rubric hidden, it preferred the untrained model on 78.4%. That is one run.
 
-**My interpretation.** The judge read the rubric well, and the rubric was not the whole of a good answer.
+The judge read the rubric well, and the rubric was not the whole of a good answer.
 
 ## The order I would work in
-
-This is my view, not a result.
 
 1. Measure candidate judges on your own task and pick the best. In FLASK the judge swap was the largest single effect, and in [HealthBench](https://cdn.openai.com/pdf/bd7a39d5-9e9f-47b3-903c-8b847ca650c7/healthbench_paper.pdf) the model that answered best was not the best grader: on agreement with physicians, o3 scored 0.681 and GPT-4.1 scored 0.709, though the grader prompt had been tuned on GPT-4.1.
 2. Give the judge an answer the candidate did not supply: a reference answer or retrieved evidence.
@@ -89,17 +87,11 @@ This is my view, not a result.
 
 *Steps 2 and 3 are the point of this post.*
 
-## What is published and what is mine
+## What is not settled
 
-**Published:** every number in this post. Each was checked against the original paper, except the HealthBench figures, which were checked against the arXiv copy of that paper.
+No single study compares all of these. FLASK compares judge, reference and rubric in one table, for evaluation only. In the training results the measured effects run from about one point to about thirteen, each from a single run.
 
-**Mine:** that a reference answer and writing-first are the same move; the order of effort; and the assumption that results on judges used for evaluation carry over to judges used as a training reward.
-
-**Not shown anywhere:** one study that compares all of these. FLASK compares judge, reference and rubric in one table, for evaluation only. In the training results the measured effects run from about one point to about thirteen, each from a single run.
-
-## The open question
-
-What does "write your own answer first" mean when the task is a research report, and the judge's own attempt is just another sample?
+And there is the task with no answer key. What does "write your own answer first" mean when the task is a research report, and the judge's own attempt is just another sample?
 
 ## References
 
